@@ -49,7 +49,11 @@ padding:100px 20px;
 text-align:center;
 }
 
-.container{max-width:900px;margin:auto;}
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
 
 /* HERO */
 .hero-img{
@@ -121,6 +125,46 @@ footer{
 padding:40px;
 text-align:center;
 opacity:0.6;
+}
+  @media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+  }
+
+  h1 {
+    font-size: 64px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  section {
+    padding: 120px 20px;
+  }
+}
+
+/* HP */
+@media (max-width: 600px) {
+  .name {
+    font-size: 32px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  p {
+    font-size: 14px;
+  }
 }
 </style>
 </head>

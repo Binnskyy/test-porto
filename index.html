@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background:linear-gradient(180deg,#000,#111,#000);
+      color:#fff;
+      scroll-behavior: smooth;
+    }
+
+    section {
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      padding:40px;
+      text-align:center;
+    }
+
+    h1 {font-size:48px; margin-bottom:20px;}
+    h2 {font-size:32px; margin-bottom:20px;}
+    p {max-width:600px; opacity:0.8;}
+
+    .btn {
+      margin-top:20px;
+      padding:10px 20px;
+      border:1px solid white;
+      background:none;
+      color:white;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .btn:hover {
+      background:white;
+      color:black;
+    }
+
+    .projects {
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .card {
+      width:250px;
+      padding:20px;
+      background:#1a1a1a;
+      border-radius:10px;
+      transition:0.3s;
+    }
+
+    .card:hover {
+      transform:translateY(-10px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section>
+    <h1 data-aos="fade-up">Hi, I'm stefiluuuu</h1>
+    <p data-aos="fade-up" data-aos-delay="200">Marketing Specialist</p>
+    <button class="btn" data-aos="fade-up" data-aos-delay="400">Contact Me</button>
+  </section>
+
+  <!-- ABOUT -->
+  <section>
+    <h2 data-aos="fade-right">About Me</h2>
+    <p data-aos="fade-left">I am a passionate Marketing Specialist </p>
+  </section>
+
+  <!-- PROJECTS -->
+  <section>
+    <h2 data-aos="fade-up">Projects</h2>
+    <div class="projects">
+      <div class="card" data-aos="zoom-in">Project 1</div>
+      <div class="card" data-aos="zoom-in" data-aos-delay="100">Project 2</div>
+      <div class="card" data-aos="zoom-in" data-aos-delay="200">Project 3</div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section>
+    <h2 data-aos="fade-up">Contact</h2>
+    <p data-aos="fade-up">stefanyreeds@gmail.com</p>
+    <p data-aos="fade-up">https://linkedin.com/in/stefany-reeds/</p>
+    <p data-aos="fade-up">+62-857-4877-0669</p>
+  </section>
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+</body>
+</html>

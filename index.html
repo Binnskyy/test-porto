@@ -12,6 +12,33 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
+    hero-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Glow circle */
+.hero-img::before {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, #c7d2fe, transparent);
+  top: -20px;
+  left: -20px;
+  z-index: -1;
+  border-radius: 50%;
+}
     * {margin:0; padding:0; box-sizing:border-box;}
     body {
       font-family: 'Poppins', sans-serif;
@@ -19,6 +46,11 @@
   color: #111827;
       scroll-behavior: smooth;
     }
+    name {
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
     section {
       min-height:100vh;
@@ -73,6 +105,9 @@
 
   <!-- HERO -->
   <section>
+    <div class="hero-img">
+  <img src="foto.jpg" alt="profile">
+</div>
     <h1 data-aos="fade-up">Hi, I'm stefiluu</h1>
     <p data-aos="fade-up" data-aos-delay="200">Marketing Specialist</p>
     <button class="btn" data-aos="fade-up" data-aos-delay="400">Contact Me</button>

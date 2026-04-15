@@ -1,82 +1,265 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
 
-    <p data-aos="fade-up">Digital Marketing • Branding • Ads Strategy</p>
-    <button class="btn" data-aos="fade-up">Get In Touch</button>
-  </section>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <!-- SUMMARY -->
-  <section>
-    <div class="container">
-      <h2 data-aos="fade-up">Summary</h2>
-      <p data-aos="fade-up">Marketing Specialist with strong passion in digital campaigns, branding, and business growth strategies.</p>
-    </div>
-  </section>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
 
-  <!-- EXPERIENCE -->
-  <section>
-    <div class="container">
-      <h2 data-aos="fade-up">Experience</h2>
-      <div class="card" data-aos="fade-up">
-        <strong>Marketing Intern</strong><br>
-        PT Example Company (2024)<br>
-        Managed digital ads and campaign optimization.
-      </div>
-    </div>
-  </section>
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#f8fafc,#e0f2fe,#eef2ff);
+color:#111;
+scroll-behavior:smooth;
+}
 
-  <!-- ORGANIZATION -->
-  <section>
-    <div class="container">
-      <h2 data-aos="fade-up">Organizational Experience</h2>
-      <div class="card" data-aos="fade-up">
-        Member of Student Organization - Managed events and branding.
-      </div>
-    </div>
-  </section>
+/* NAV */
+nav{
+position:fixed;
+top:0;
+width:100%;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+backdrop-filter:blur(10px);
+background:rgba(255,255,255,0.5);
+z-index:999;
+}
 
-  <!-- CERTIFICATIONS -->
-  <section>
-    <div class="container">
-      <h2 data-aos="fade-up">Certifications</h2>
-      <div class="card" data-aos="fade-up">Google Digital Marketing Certification</div>
-    </div>
-  </section>
+nav a{
+text-decoration:none;
+color:#333;
+margin:0 10px;
+font-size:14px;
+}
 
-  <!-- EDUCATION -->
-  <section>
-    <div class="container">
-      <h2 data-aos="fade-up">Education</h2>
-      <div class="card" data-aos="fade-up">S1 Teknologi Pangan</div>
-    </div>
-  </section>
+/* SECTION */
+section{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+padding:100px 20px;
+text-align:center;
+}
 
-  <!-- SKILLS -->
-  <section>
-    <div class="container">
-      <h2 data-aos="fade-up">Skills & Competencies</h2>
-      <div class="skills">
-        <div class="skill">SEO</div>
-        <div class="skill">Ads</div>
-        <div class="skill">Branding</div>
-        <div class="skill">Copywriting</div>
-      </div>
-    </div>
-  </section>
+.container{max-width:900px;margin:auto;}
 
-  <!-- CONTACT -->
-  <section>
-    <div class="container">
-      <h2 data-aos="fade-up">Get In Touch</h2>
-      <p data-aos="fade-up">stefanyreeds@gmail.com</p>
-      <p data-aos="fade-up">linkedin.com/in/stefany-reeds</p>
-      <p data-aos="fade-up">+62-857-4877-0669</p>
-    </div>
-  </section>
+/* HERO */
+.hero-img{
+width:160px;height:160px;border-radius:50%;
+overflow:hidden;margin-bottom:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+.hero-img img{width:100%;height:100%;object-fit:cover;}
+
+.name{
+font-size:50px;
+background:linear-gradient(90deg,#6366f1,#a855f7);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.btn{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:linear-gradient(90deg,#6366f1,#a855f7);
+color:#fff;
+cursor:pointer;
+}
+
+/* CARD */
+.card{
+background:#fff;
+padding:25px;
+border-radius:20px;
+margin:15px 0;
+text-align:left;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card:hover{transform:translateY(-8px);}
+
+/* TIMELINE */
+.timeline{
+border-left:2px solid #ccc;
+padding-left:20px;
+text-align:left;
+}
+
+.timeline-item{
+margin-bottom:20px;
+}
+
+/* SKILLS */
+.skills{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+justify-content:center;
+}
+
+.skill{
+background:#fff;
+padding:10px 18px;
+border-radius:20px;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* FOOTER */
+footer{
+padding:40px;
+text-align:center;
+opacity:0.6;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<div>MyCV</div>
+<div>
+<a href="#">Home</a>
+<a href="#summary">Summary</a>
+<a href="#exp">Experience</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section>
+<div class="hero-img" data-aos="zoom-in">
+<img src="foto.jpg">
+</div>
+
+<h1 data-aos="fade-up">Hello, I am</h1>
+<h1 class="name" data-aos="fade-up">Stefiluuu</h1>
+<p data-aos="fade-up">Digital Marketing • Branding • Ads</p>
+
+<button class="btn" data-aos="fade-up">Get In Touch</button>
+</section>
+
+<!-- SUMMARY -->
+<section id="summary">
+<div class="container">
+<h2 data-aos="fade-up">Summary</h2>
+<p data-aos="fade-up">
+Marketing Specialist focused on digital growth, ads optimization,
+and brand positioning with data-driven strategy.
+</p>
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="exp">
+<div class="container">
+<h2 data-aos="fade-up">Experience</h2>
+
+<div class="timeline">
+
+<div class="timeline-item card" data-aos="fade-up">
+<strong>Marketing Intern</strong><br>
+PT Example (2024)<br>
+Running ads & analytics
+</div>
+
+<div class="timeline-item card" data-aos="fade-up">
+<strong>Freelance Ads Specialist</strong><br>
+Handled multiple clients campaign
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ORGANIZATION -->
+<section>
+<div class="container">
+<h2 data-aos="fade-up">Organizational</h2>
+
+<div class="card" data-aos="fade-up">
+Student Organization - Event & Branding Team
+</div>
+
+</div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section>
+<div class="container">
+<h2 data-aos="fade-up">Certifications</h2>
+
+<div class="card" data-aos="fade-up">
+Google Digital Marketing Certification
+</div>
+
+<div class="card" data-aos="fade-up">
+Meta Ads Certification
+</div>
+
+</div>
+</section>
+
+<!-- EDUCATION -->
+<section>
+<div class="container">
+<h2 data-aos="fade-up">Education</h2>
+
+<div class="card" data-aos="fade-up">
+S1 Teknologi Pangan
+</div>
+
+</div>
+</section>
+
+<!-- SKILLS -->
+<section>
+<div class="container">
+<h2 data-aos="fade-up">Skills</h2>
+
+<div class="skills">
+<div class="skill">SEO</div>
+<div class="skill">Ads</div>
+<div class="skill">Copywriting</div>
+<div class="skill">Branding</div>
+<div class="skill">Analytics</div>
+</div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="container">
+<h2 data-aos="fade-up">Get In Touch</h2>
+
+<p data-aos="fade-up">📧 email@email.com</p>
+<p data-aos="fade-up">🔗 linkedin.com</p>
+<p data-aos="fade-up">📱 +62 xxx</p>
+
+</div>
+</section>
+
+<footer>
+© 2026 My Portfolio
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init();
+</script>
 
 </body>
 </html>

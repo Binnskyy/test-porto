@@ -106,59 +106,90 @@
     }
 
     /* ---------- HERO (Left-Aligned, Large Whitespace) ---------- */
+    
     .hero-section {
       display: flex;
       align-items: center;
       min-height: 100vh;
-      padding: 0 48px;
+      padding: 120px 48px 60px 48px;
     }
 
-    .hero-content {
-      max-width: 900px;
+    .visual-group {
+      position: relative;
+      margin-bottom: 40px;
     }
 
-    .hero-img {
-      width: 120px;
-      height: 120px;
+    .orbit-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 1px dashed rgba(157, 117, 255, 0.4);
+      animation: rotateRing 25s linear infinite;
+    }
+
+    @keyframes rotateRing {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .profile-circle {
+      position: relative;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
       overflow: hidden;
-      margin-bottom: 32px;
-      border: 1px solid #EAEAEA;
-      /* No shadow – pure flat */
+      border: 4px solid #fff;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      z-index: 2;
     }
 
-    .hero-img img {
+    .profile-circle img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .hero-greeting {
-      font-size: 1.1rem;
-      font-weight: 400;
-      color: #666666;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
+    .float-label {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      z-index: 3;
     }
 
-    .name {
-      font-size: 5rem;               /* Even larger */
-      font-weight: 700;
-      color: #000000;
-      margin-bottom: 16px;
+    .label-top { top: -10px; left: -80px; }
+    .label-bottom { bottom: 10px; right: -60px; }
+    .float-label i { color: #9d75ff; }
+
+    .display-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 4.8rem;
+      font-weight: 800;
       letter-spacing: -0.05em;
       line-height: 1;
-      background: none;              /* Remove gradient */
-      -webkit-text-fill-color: #000000;
+      margin-bottom: 24px;
+      color: #000;
     }
 
-    .hero-sub {
-      font-size: 1.4rem;
-      font-weight: 300;
-      color: #444444;
-      margin-bottom: 40px;
+    .gradient-text {
+      display: block;
+      background: linear-gradient(90deg, #9d75ff 0%, #ff85ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
+}
 
     /* ---------- BUTTONS (Minimalist solid / outline) ---------- */
     .btn {

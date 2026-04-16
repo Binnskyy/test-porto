@@ -17,7 +17,7 @@
     }
 
     html {
-      scroll-padding-top: 90px;  /* biar section gak ketutup navbar */
+      scroll-padding-top: 90px;
     }
 
     body {
@@ -59,12 +59,12 @@
       text-align: left;
     }
 
-    /* ---------- NAVIGATION (Fixed, tidak mengganggu klik anchor) ---------- */
+    /* ---------- NAVIGATION (Fixed, menu lengkap, bisa swipe di mobile) ---------- */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      padding: 14px 48px;  /* sedikit lebih kecil */
+      padding: 14px 48px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -76,7 +76,16 @@
 
     .nav-links {
       display: flex;
-      gap: 36px;
+      gap: 28px;
+      flex-wrap: wrap;           /* memungkinkan wrap di layar kecil */
+      overflow-x: auto;          /* swipe horizontal jika perlu */
+      white-space: nowrap;
+      padding-bottom: 4px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;     /* sembunyikan scrollbar Firefox */
+    }
+    .nav-links::-webkit-scrollbar {
+      display: none;             /* sembunyikan scrollbar Chrome/Safari */
     }
 
     nav a {
@@ -87,6 +96,7 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
       transition: opacity 0.2s;
+      flex-shrink: 0;
     }
 
     nav a:hover {
@@ -97,14 +107,16 @@
       font-weight: 700;
       font-size: 1.2rem;
       letter-spacing: -0.02em;
+      margin-right: 20px;
+      flex-shrink: 0;
     }
 
-    /* ---------- HERO SECTION (Orbit di tengah, foto lebih besar) ---------- */
+    /* ---------- HERO SECTION ---------- */
     .hero-section {
       display: flex;
       align-items: center;
       min-height: 100vh;
-      padding: 120px 48px 60px;  /* extra top supaya gak ketutup navbar */
+      padding: 120px 48px 60px;
     }
 
     .hero-content {
@@ -112,14 +124,27 @@
       width: 100%;
     }
 
-    /* VISUAL GROUP : semua di tengah */
+    /* VISUAL GROUP : tengah, dengan background solid di belakang orbit */
     .visual-group {
       position: relative;
       display: flex;
-      justify-content: center;  /* horizontal center */
+      justify-content: center;
       align-items: center;
       width: 100%;
       margin-bottom: 40px;
+    }
+
+    /* Latar belakang lingkaran solid (biru pastel sangat transparan) */
+    .bg-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 380px;              /* sedikit lebih besar dari orbit ring */
+      height: 380px;
+      border-radius: 50%;
+      background: rgba(200, 220, 255, 0.2); /* biru pastel sangat soft */
+      z-index: 0;
     }
 
     .orbit-ring {
@@ -127,11 +152,12 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 300px;            /* diameter lebih besar dari foto (180px) */
-      height: 300px;
+      width: 330px;              /* lebih besar dari foto (200px) */
+      height: 330px;
       border-radius: 50%;
-      border: 1.5px dashed rgba(139, 169, 255, 0.45); /* biru pastel */
+      border: 1.5px dashed rgba(139, 169, 255, 0.5);
       animation: rotateRing 25s linear infinite;
+      z-index: 1;
     }
 
     @keyframes rotateRing {
@@ -141,8 +167,8 @@
 
     .profile-circle {
       position: relative;
-      width: 180px;             /* lebih besar */
-      height: 180px;
+      width: 200px;              /* diperbesar */
+      height: 200px;
       border-radius: 50%;
       overflow: hidden;
       border: 5px solid #FFFFFF;
@@ -156,14 +182,13 @@
       object-fit: cover;
     }
 
-    /* Float label : lebih kecil & agak jauh */
     .float-label {
       position: absolute;
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(8px);
       padding: 6px 14px;
       border-radius: 40px;
-      font-size: 0.7rem;        /* lebih kecil */
+      font-size: 0.7rem;
       font-weight: 500;
       border: 1px solid #EEEEEE;
       display: flex;
@@ -175,7 +200,6 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.02);
     }
 
-    /* posisi label lebih menjauh dari foto */
     .label-top { 
       top: -20px; 
       left: -60px; 
@@ -211,11 +235,20 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .hero-sub {
+    .hero-tagline {
       font-size: 1.3rem;
       font-weight: 300;
       color: #444;
+      margin-bottom: 12px;
+    }
+
+    .hero-description {
+      font-size: 0.95rem;
+      color: #666;
+      max-width: 600px;
       margin-bottom: 40px;
+      font-weight: 300;
+      line-height: 1.6;
     }
 
     /* ---------- BUTTONS ---------- */
@@ -253,7 +286,7 @@
       transform: translateY(-2px);
     }
 
-    /* ---------- CARDS (Bento) ---------- */
+    /* ---------- CARDS ---------- */
     .card {
       background: #FFFFFF;
       padding: 32px;
@@ -325,52 +358,75 @@
     }
 
     /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 900px) {
+      nav {
+        padding: 14px 24px;
+      }
+      .nav-links {
+        gap: 20px;
+      }
+    }
+
     @media (max-width: 768px) {
-      nav { padding: 12px 24px; }
-      .nav-links { gap: 24px; }
       .hero-section { padding: 100px 24px 60px; }
       .display-name { font-size: 3.2rem; }
-      .orbit-ring { width: 250px; height: 250px; }
-      .profile-circle { width: 150px; height: 150px; }
+      .bg-circle { width: 320px; height: 320px; }
+      .orbit-ring { width: 280px; height: 280px; }
+      .profile-circle { width: 170px; height: 170px; }
       .float-label { font-size: 0.65rem; padding: 5px 10px; }
       .label-top { left: -30px; top: -15px; }
       .label-bottom { right: -20px; bottom: -10px; }
       h2 { font-size: 2rem; }
       .container { width: 88%; }
+      .nav-links {
+        gap: 18px;
+        padding-bottom: 8px;
+      }
     }
 
     @media (max-width: 480px) {
       .display-name { font-size: 2.5rem; }
-      .hero-sub { font-size: 1rem; }
+      .hero-tagline { font-size: 1rem; }
+      .hero-description { font-size: 0.85rem; }
       .btn { padding: 12px 24px; width: 100%; text-align: center; }
       .btn-outline { margin-left: 0; margin-top: 12px; }
       .timeline { padding-left: 20px; }
       .timeline-item::before { left: -28px; }
-      .orbit-ring { width: 200px; height: 200px; }
-      .profile-circle { width: 130px; height: 130px; }
+      .bg-circle { width: 260px; height: 260px; }
+      .orbit-ring { width: 230px; height: 230px; }
+      .profile-circle { width: 140px; height: 140px; }
       .label-top { left: -10px; }
       .label-bottom { right: -10px; }
+      .nav-links {
+        gap: 16px;
+        padding-bottom: 6px;
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
+<!-- NAVIGATION (lengkap, dengan swipe di mobile) -->
 <nav>
   <div class="logo">MyCV</div>
   <div class="nav-links">
     <a href="#">Home</a>
     <a href="#summary">Summary</a>
     <a href="#exp">Experience</a>
+    <a href="#org">Organizational</a>
+    <a href="#cert">Certifications</a>
+    <a href="#edu">Education</a>
+    <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
-<!-- HERO SECTION (Orbit biru pastel, foto besar di tengah) -->
+<!-- HERO SECTION -->
 <section class="hero-section">
   <div class="hero-content">
-    <!-- Visual Group : gambar & orbit center -->
+    <!-- Visual Group dengan background circle baru -->
     <div class="visual-group" data-aos="fade-up" data-aos-duration="1000">
+      <div class="bg-circle"></div>            <!-- latar belakang solid -->
       <div class="orbit-ring"></div>
       <div class="profile-circle">
         <!-- GANTI FOTO KAMU -->
@@ -390,8 +446,13 @@
       <span class="gradient-text">Stefiluuu</span>
     </h1>
     
-    <p class="hero-sub" data-aos="fade-up" data-aos-delay="200" data-aos-duration="900">
+    <p class="hero-tagline" data-aos="fade-up" data-aos-delay="200" data-aos-duration="900">
       Digital Marketing • Branding • Ads
+    </p>
+
+    <!-- Deskripsi singkat tambahan -->
+    <p class="hero-description" data-aos="fade-up" data-aos-delay="250" data-aos-duration="900">
+      I help brands scale through SEO, paid media, and conversion‑focused strategies. <br> Let's turn insights into measurable growth.
     </p>
     
     <div data-aos="fade-up" data-aos-delay="300" data-aos-duration="900">
@@ -431,7 +492,7 @@
 </section>
 
 <!-- ORGANIZATION -->
-<section>
+<section id="org">
   <div class="container">
     <h2 data-aos="fade-up" data-aos-duration="900">Organizational</h2>
     <div class="card" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000">
@@ -441,7 +502,7 @@
 </section>
 
 <!-- CERTIFICATIONS -->
-<section>
+<section id="cert">
   <div class="container">
     <h2 data-aos="fade-up" data-aos-duration="900">Certifications</h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
@@ -456,7 +517,7 @@
 </section>
 
 <!-- EDUCATION -->
-<section>
+<section id="edu">
   <div class="container">
     <h2 data-aos="fade-up" data-aos-duration="900">Education</h2>
     <div class="card" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000">
@@ -466,7 +527,7 @@
 </section>
 
 <!-- SKILLS -->
-<section>
+<section id="skills">
   <div class="container">
     <h2 data-aos="fade-up" data-aos-duration="900">Skills</h2>
     <div class="skills" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">

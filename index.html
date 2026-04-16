@@ -131,7 +131,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 320px;                /* sesuai permintaan */
+      width: 320px;
       height: 320px;
       border-radius: 50%;
       background: rgba(185, 210, 255, 0.3);
@@ -143,7 +143,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 280px;                /* sesuai permintaan */
+      width: 280px;
       height: 280px;
       border-radius: 50%;
       border: 1.5px dashed rgba(105, 145, 225, 0.5);
@@ -158,7 +158,7 @@
 
     .profile-circle {
       position: relative;
-      width: 240px;                /* sesuai permintaan */
+      width: 240px;
       height: 240px;
       border-radius: 50%;
       overflow: hidden;
@@ -207,6 +207,52 @@
       background: #7f9cf5;
       border-radius: 50%;
       margin-right: 4px;
+    }
+
+    /* ---------- PANAH GOMBAL & TEKS LUCU ---------- */
+    .gombal-arrow {
+      position: absolute;
+      top: -10px;
+      right: -40px;      /* di kanan atas foto */
+      z-index: 5;
+      pointer-events: none;  /* biar gak ganggu klik */
+      animation: floatArrow 3s ease-in-out infinite;
+    }
+
+    @keyframes floatArrow {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-8px) rotate(0deg); }
+    }
+
+    .gombal-text {
+      position: absolute;
+      top: -50px;
+      right: 20px;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(4px);
+      padding: 6px 16px;
+      border-radius: 60px;
+      font-size: 0.8rem;
+      font-weight: 400;
+      font-style: italic;
+      color: #2e4258;
+      border: 1px solid rgba(139, 169, 255, 0.4);
+      white-space: nowrap;
+      z-index: 4;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      animation: fadeText 3s ease-in-out infinite;
+    }
+
+    @keyframes fadeText {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; }
+    }
+
+    /* panah SVG styling */
+    .arrow-svg {
+      width: 100px;
+      height: auto;
+      filter: drop-shadow(0 4px 6px rgba(58, 107, 197, 0.1));
     }
 
     .display-name {
@@ -395,6 +441,9 @@
       .float-label { font-size: 0.6rem; padding: 5px 10px; }
       .label-top { left: -30px; top: -15px; }
       .label-bottom { right: -25px; bottom: -10px; }
+      .gombal-arrow { right: -20px; top: 0; }
+      .gombal-text { right: 10px; top: -40px; font-size: 0.7rem; }
+      .arrow-svg { width: 80px; }
       h2 { font-size: 2rem; }
       .container { width: 88%; }
     }
@@ -424,6 +473,9 @@
       .profile-circle { width: 150px; height: 150px; }
       .label-top { left: -10px; }
       .label-bottom { right: -10px; }
+      .gombal-arrow { right: -10px; top: 10px; }
+      .gombal-text { right: 0; top: -35px; font-size: 0.65rem; }
+      .arrow-svg { width: 70px; }
     }
   </style>
 </head>
@@ -452,13 +504,27 @@
       <div class="orbit-ring"></div>
       <div class="profile-circle">
         <!-- GANTI FOTO KAMU -->
-        <img src="https://i.ibb.co.com/m51gZPVL/IMG-20251201-WA0021.jpg" alt="Stefiluuu">
+        <img src="foto.jpg" alt="Stefiluuu">
       </div>
       <div class="float-label label-top" data-aos="fade-right" data-aos-delay="200" data-aos-duration="800">
         <span class="dot-indicator"></span> SEO Specialist
       </div>
       <div class="float-label label-bottom" data-aos="fade-left" data-aos-delay="300" data-aos-duration="800">
         <span class="dot-indicator"></span> Meta Ads • Google
+      </div>
+
+      <!-- PANAH GOMBAL & TEKS -->
+      <div class="gombal-arrow" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="800">
+        <svg class="arrow-svg" viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- ekor bergelombang -->
+          <path d="M10 40 C 30 20, 40 55, 60 35 C 75 20, 80 45, 95 30 L 105 25 L 100 15 L 85 22 C 70 35, 60 10, 40 25 C 25 40, 20 15, 5 30" 
+                stroke="#7f9cf5" stroke-width="3" stroke-linecap="round" fill="none" stroke-linejoin="round"/>
+          <!-- kepala panah segitiga di ujung -->
+          <polygon points="105,25 115,30 105,35" fill="#7f9cf5" />
+        </svg>
+      </div>
+      <div class="gombal-text" data-aos="fade-left" data-aos-delay="450" data-aos-duration="800">
+        ✨ ini dia dalangnya ✨
       </div>
     </div>
 

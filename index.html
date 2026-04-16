@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stefiluuu · Minimal Portfolio</title>
-  <!-- Modern Typography: Inter (fallback ke sans-serif) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Stefiluuu · Minimal + Orbit</title>
+  <!-- Modern Typography: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- AOS Library -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    /* ---------- RESET & BASE (Minimalist Monochrome) ---------- */
+    /* ---------- RESET & BASE (Monochrome Minimalist) ---------- */
     * {
       margin: 0;
       padding: 0;
@@ -18,23 +18,16 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #FFFFFF;       /* Clean white base */
-      color: #111111;                 /* Deep black for contrast */
+      background-color: #FFFFFF;
+      color: #111111;
       line-height: 1.5;
       scroll-behavior: smooth;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ---------- TYPOGRAPHY (Large & Bold) ---------- */
     h1, h2, h3 {
       font-weight: 600;
       letter-spacing: -0.03em;
-    }
-
-    h1 {
-      font-size: 4.5rem;              /* 72px – super bold statement */
-      line-height: 1.1;
-      letter-spacing: -0.04em;
     }
 
     h2 {
@@ -51,7 +44,6 @@
       color: #333333;
     }
 
-    /* ---------- LAYOUT & SPACING ---------- */
     .container {
       width: 90%;
       max-width: 1280px;
@@ -60,12 +52,11 @@
 
     section {
       padding: 100px 0;
-      min-height: auto;
       display: block;
-      text-align: left;              /* Default left-aligned */
+      text-align: left;
     }
 
-    /* ---------- NAVIGATION (Glassmorphism minimal) ---------- */
+    /* ---------- NAVIGATION (Glass) ---------- */
     nav {
       position: fixed;
       top: 0;
@@ -105,13 +96,16 @@
       letter-spacing: -0.02em;
     }
 
-    /* ---------- HERO (Left-Aligned, Large Whitespace) ---------- */
-    
+    /* ---------- HERO SECTION (BARU: ORBIT & FLOAT LABEL) ---------- */
     .hero-section {
       display: flex;
       align-items: center;
       min-height: 100vh;
       padding: 120px 48px 60px 48px;
+    }
+
+    .hero-content {
+      max-width: 1000px;
     }
 
     .visual-group {
@@ -127,7 +121,7 @@
       width: 300px;
       height: 300px;
       border-radius: 50%;
-      border: 1px dashed rgba(157, 117, 255, 0.4);
+      border: 1.5px dashed rgba(157, 117, 255, 0.3); /* subtle purple */
       animation: rotateRing 25s linear infinite;
     }
 
@@ -142,8 +136,8 @@
       height: 140px;
       border-radius: 50%;
       overflow: hidden;
-      border: 4px solid #fff;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border: 4px solid #FFFFFF;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* very subtle, still flat-ish */
       z-index: 2;
     }
 
@@ -161,17 +155,28 @@
       border-radius: 50px;
       font-size: 0.8rem;
       font-weight: 600;
-      border: 1px solid #eee;
+      border: 1px solid #EEEEEE;
       display: flex;
       align-items: center;
       gap: 8px;
       white-space: nowrap;
       z-index: 3;
+      color: #111;
     }
 
     .label-top { top: -10px; left: -80px; }
     .label-bottom { bottom: 10px; right: -60px; }
-    .float-label i { color: #9d75ff; }
+    .float-label i { color: #9d75ff; font-style: normal; } /* fallback */
+
+    /* Untuk simbol lingkaran kecil */
+    .dot-indicator {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #9d75ff;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
 
     .display-name {
       font-family: 'Inter', sans-serif;
@@ -185,16 +190,21 @@
 
     .gradient-text {
       display: block;
-      background: linear-gradient(90deg, #9d75ff 0%, #ff85ff 100%);
+      background: linear-gradient(135deg, #9d75ff 0%, #ff85b3 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-}
 
-    /* ---------- BUTTONS (Minimalist solid / outline) ---------- */
+    .hero-sub {
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: #444;
+      margin-bottom: 40px;
+    }
+
+    /* ---------- BUTTONS (Minimalist) ---------- */
     .btn {
       display: inline-block;
-      margin-top: 8px;
       padding: 14px 34px;
       border-radius: 40px;
       font-weight: 500;
@@ -227,25 +237,22 @@
       transform: translateY(-2px);
     }
 
-    /* ---------- CARDS (Bento Grid Style: border only, no shadow) ---------- */
+    /* ---------- CARDS (Bento, border only) ---------- */
     .card {
       background: #FFFFFF;
       padding: 32px;
       border-radius: 24px;
-      margin: 0;
-      text-align: left;
       border: 1px solid #EAEAEA;
       transition: border 0.2s, transform 0.2s;
       box-shadow: none;
+      text-align: left;
     }
 
     .card:hover {
       border: 1px solid #AAAAAA;
       transform: translateY(-4px);
-      box-shadow: none;
     }
 
-    /* Timeline modification */
     .timeline {
       border-left: 1px solid #DDDDDD;
       padding-left: 32px;
@@ -269,7 +276,6 @@
       border: 2px solid #FFFFFF;
     }
 
-    /* Skills chips */
     .skills {
       display: flex;
       flex-wrap: wrap;
@@ -288,93 +294,53 @@
       box-shadow: none;
     }
 
-    /* ---------- CONTACT ---------- */
     .contact-details p {
       margin: 16px 0;
       font-size: 1.2rem;
       font-weight: 300;
     }
 
-    /* ---------- FOOTER ---------- */
     footer {
       padding: 40px 48px;
       text-align: left;
       border-top: 1px solid #EEEEEE;
       color: #777777;
       font-size: 0.9rem;
-      opacity: 1;
     }
 
-    /* ---------- RESPONSIVE ADJUSTMENTS ---------- */
-    @media (min-width: 1024px) {
-      .container {
-        max-width: 1280px;
-      }
-      h1 {
-        font-size: 5rem;
-      }
-    }
-
+    /* ---------- RESPONSIVE ---------- */
     @media (max-width: 768px) {
-      nav {
-        padding: 16px 24px;
-      }
-      .nav-links {
-        gap: 24px;
-      }
-      .hero-section {
-        padding: 0 24px;
-      }
-      .name {
-        font-size: 3.8rem;
-      }
-      h2 {
-        font-size: 2rem;
-      }
-      section {
-        padding: 70px 0;
-      }
-      .container {
-        width: 88%;
-      }
+      nav { padding: 16px 24px; }
+      .nav-links { gap: 24px; }
+      .hero-section { padding: 120px 24px 60px; }
+      .display-name { font-size: 3.2rem; }
+      .float-label { font-size: 0.7rem; padding: 6px 12px; }
+      .label-top { left: -40px; }
+      .label-bottom { right: -30px; }
+      .orbit-ring { width: 220px; height: 220px; }
+      h2 { font-size: 2rem; }
+      .container { width: 88%; }
     }
 
     @media (max-width: 480px) {
-      .name {
-        font-size: 2.8rem;
-      }
-      .hero-sub {
-        font-size: 1.1rem;
-      }
-      .btn {
-        padding: 12px 24px;
-        width: 100%;
-        text-align: center;
-      }
-      .btn-outline {
-        margin-left: 0;
-        margin-top: 12px;
-      }
-      .timeline {
-        padding-left: 20px;
-      }
-      .timeline-item::before {
-        left: -28px;
-      }
+      .display-name { font-size: 2.5rem; }
+      .hero-sub { font-size: 1rem; }
+      .btn { padding: 12px 24px; width: 100%; text-align: center; }
+      .btn-outline { margin-left: 0; margin-top: 12px; }
+      .timeline { padding-left: 20px; }
+      .timeline-item::before { left: -28px; }
+      .orbit-ring { width: 180px; height: 180px; }
     }
 
-    /* Utility: overwrite old inline centering */
-    section {
-      display: block;
-      justify-content: unset;
-      flex-direction: unset;
-      text-align: left;
+    /* AOS custom duration */
+    [data-aos] {
+      transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
   </style>
 </head>
 <body>
 
-<!-- NAVIGATION (Glass, Minimal) -->
+<!-- NAVIGATION -->
 <nav>
   <div class="logo">MyCV</div>
   <div class="nav-links">
@@ -385,17 +351,37 @@
   </div>
 </nav>
 
-<!-- HERO SECTION (Left-Aligned) -->
+<!-- HERO SECTION dengan ORBIT & FLOAT LABEL (Sesuai Permintaan) -->
 <section class="hero-section">
   <div class="hero-content">
-    <div class="hero-img" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-out-quart">
-      <!-- GANTI FOTO ANDA -->
-      <img src="foto.jpg" alt="Stefiluuu">
+    <!-- Visual Group dengan orbit dan label -->
+    <div class="visual-group" data-aos="fade-up" data-aos-duration="1000">
+      <div class="orbit-ring"></div>
+      <div class="profile-circle">
+        <!-- GANTI FOTO ANDA -->
+        <img src="foto.jpg" alt="Stefiluuu">
+      </div>
+      <!-- Float Labels -->
+      <div class="float-label label-top" data-aos="fade-right" data-aos-delay="200" data-aos-duration="800">
+        <span class="dot-indicator"></span> SEO Specialist
+      </div>
+      <div class="float-label label-bottom" data-aos="fade-left" data-aos-delay="300" data-aos-duration="800">
+        <span class="dot-indicator"></span> Meta Ads • Google
+      </div>
     </div>
-    <div class="hero-greeting" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">Hello, I am</div>
-    <h1 class="name" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1200">Stefiluuu</h1>
-    <p class="hero-sub" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">Digital Marketing • Branding • Ads</p>
-    <div data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+
+    <div class="hero-greeting" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900" style="font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; color: #666; margin-bottom: 8px;">Hello, I am</div>
+    
+    <!-- Nama dengan gradient text -->
+    <h1 class="display-name" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1000">
+      <span class="gradient-text">Stefiluuu</span>
+    </h1>
+    
+    <p class="hero-sub" data-aos="fade-up" data-aos-delay="200" data-aos-duration="900">
+      Digital Marketing • Branding • Ads
+    </p>
+    
+    <div data-aos="fade-up" data-aos-delay="300" data-aos-duration="900">
       <a href="#contact" class="btn">Get In Touch →</a>
       <a href="#" class="btn btn-outline">Download CV</a>
     </div>
@@ -493,17 +479,17 @@
 </section>
 
 <footer>
-  © 2026 My Portfolio — Designed with minimalism.
+  © 2026 My Portfolio — Minimalist with orbit accent.
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({
-    duration: 1000,      // lebih lambat, elegan
+    duration: 1000,
     once: true,
     easing: 'ease-out-quart',
     offset: 80
   });
 </script>
 </body>
-</html>
+  </html>

@@ -17,12 +17,13 @@
     }
 
     html {
-      scroll-padding-top: 90px;
+      scroll-padding-top: 70px;   /* disesuaikan dengan tinggi navbar baru */
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #FFFFFF;
+      /* Gradasi pastel biru lembut */
+      background: linear-gradient(145deg, #f3f9ff 0%, #e3edfc 100%);
       color: #111111;
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
@@ -44,7 +45,7 @@
     p {
       font-size: 1.1rem;
       font-weight: 400;
-      color: #333333;
+      color: #2c3e4e;
     }
 
     .container {
@@ -59,42 +60,42 @@
       text-align: left;
     }
 
-    /* ---------- NAVIGATION (Fixed, menu lengkap, bisa swipe di mobile) ---------- */
+    /* ---------- NAVIGATION (Kecil, compact) ---------- */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      padding: 14px 48px;
+      padding: 8px 32px;           /* lebih kecil */
       display: flex;
       justify-content: space-between;
       align-items: center;
       backdrop-filter: blur(12px);
-      background: rgba(255, 255, 255, 0.8);
-      border-bottom: 1px solid #EEEEEE;
+      background: rgba(255, 255, 255, 0.4);
+      border-bottom: 1px solid rgba(139, 169, 255, 0.2);
       z-index: 999;
     }
 
     .nav-links {
       display: flex;
-      gap: 28px;
-      flex-wrap: wrap;           /* memungkinkan wrap di layar kecil */
-      overflow-x: auto;          /* swipe horizontal jika perlu */
+      gap: 20px;                  /* lebih rapat */
+      flex-wrap: wrap;
+      overflow-x: auto;
       white-space: nowrap;
       padding-bottom: 4px;
       -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;     /* sembunyikan scrollbar Firefox */
+      scrollbar-width: none;
     }
     .nav-links::-webkit-scrollbar {
-      display: none;             /* sembunyikan scrollbar Chrome/Safari */
+      display: none;
     }
 
     nav a {
       text-decoration: none;
-      color: #111111;
-      font-size: 0.9rem;
+      color: #1e2b39;
+      font-size: 0.75rem;         /* kecil banget tapi tetap terbaca */
       font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.8px;
       transition: opacity 0.2s;
       flex-shrink: 0;
     }
@@ -105,18 +106,19 @@
 
     .logo {
       font-weight: 700;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       letter-spacing: -0.02em;
       margin-right: 20px;
       flex-shrink: 0;
+      color: #1e2b39;
     }
 
-    /* ---------- HERO SECTION ---------- */
+    /* ---------- HERO SECTION (jarak ditambah) ---------- */
     .hero-section {
       display: flex;
       align-items: center;
       min-height: 100vh;
-      padding: 120px 48px 60px;
+      padding: 140px 48px 80px;   /* top ditambah agar teks turun */
     }
 
     .hero-content {
@@ -124,26 +126,24 @@
       width: 100%;
     }
 
-    /* VISUAL GROUP : tengah, dengan background solid di belakang orbit */
     .visual-group {
       position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
-      margin-bottom: 40px;
+      margin-bottom: 48px;         /* jarak ke teks */
     }
 
-    /* Latar belakang lingkaran solid (biru pastel sangat transparan) */
     .bg-circle {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 380px;              /* sedikit lebih besar dari orbit ring */
+      width: 380px;
       height: 380px;
       border-radius: 50%;
-      background: rgba(200, 220, 255, 0.2); /* biru pastel sangat soft */
+      background: rgba(185, 210, 255, 0.25); /* biru pastel transparan */
       z-index: 0;
     }
 
@@ -152,10 +152,10 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 330px;              /* lebih besar dari foto (200px) */
+      width: 330px;
       height: 330px;
       border-radius: 50%;
-      border: 1.5px dashed rgba(139, 169, 255, 0.5);
+      border: 1.5px dashed rgba(105, 145, 225, 0.45);
       animation: rotateRing 25s linear infinite;
       z-index: 1;
     }
@@ -167,12 +167,12 @@
 
     .profile-circle {
       position: relative;
-      width: 200px;              /* diperbesar */
+      width: 200px;
       height: 200px;
       border-radius: 50%;
       overflow: hidden;
       border: 5px solid #FFFFFF;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.04);
+      box-shadow: 0 15px 30px rgba(60, 90, 130, 0.08);
       z-index: 2;
     }
 
@@ -184,20 +184,20 @@
 
     .float-label {
       position: absolute;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(8px);
       padding: 6px 14px;
       border-radius: 40px;
       font-size: 0.7rem;
       font-weight: 500;
-      border: 1px solid #EEEEEE;
+      border: 1px solid #d9e5ff;
       display: flex;
       align-items: center;
       gap: 6px;
       white-space: nowrap;
       z-index: 3;
-      color: #111;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      color: #1f3a5f;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
     }
 
     .label-top { 
@@ -213,7 +213,7 @@
       display: inline-block;
       width: 6px;
       height: 6px;
-      background: #8ba9ff;
+      background: #7f9cf5;
       border-radius: 50%;
       margin-right: 4px;
     }
@@ -224,13 +224,13 @@
       font-weight: 800;
       letter-spacing: -0.05em;
       line-height: 1;
-      margin-bottom: 24px;
-      color: #000;
+      margin-bottom: 20px;
+      color: #0f1a26;
     }
 
     .gradient-text {
       display: block;
-      background: linear-gradient(135deg, #7f9cf5 0%, #b3cdff 100%);
+      background: linear-gradient(135deg, #3a6bc5 0%, #7e9ef0 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -238,13 +238,13 @@
     .hero-tagline {
       font-size: 1.3rem;
       font-weight: 300;
-      color: #444;
+      color: #2e4258;
       margin-bottom: 12px;
     }
 
     .hero-description {
       font-size: 0.95rem;
-      color: #666;
+      color: #3e5570;
       max-width: 600px;
       margin-bottom: 40px;
       font-weight: 300;
@@ -261,49 +261,51 @@
       text-decoration: none;
       cursor: pointer;
       transition: all 0.25s ease;
-      background: #000000;
+      background: #1e2b39;
       color: #FFFFFF;
-      border: 1.5px solid #000000;
+      border: 1.5px solid #1e2b39;
       letter-spacing: 0.3px;
     }
 
     .btn-outline {
       background: transparent;
-      color: #000000;
-      border: 1.5px solid #CCCCCC;
+      color: #1e2b39;
+      border: 1.5px solid #a0bbd8;
       margin-left: 12px;
     }
 
     .btn:hover {
-      background: #333333;
-      border-color: #333333;
+      background: #2e4258;
+      border-color: #2e4258;
       transform: translateY(-2px);
     }
 
     .btn-outline:hover {
-      background: #F5F5F5;
-      border-color: #000000;
+      background: rgba(255,255,255,0.5);
+      border-color: #1e2b39;
       transform: translateY(-2px);
     }
 
     /* ---------- CARDS ---------- */
     .card {
-      background: #FFFFFF;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(4px);
       padding: 32px;
       border-radius: 24px;
-      border: 1px solid #EAEAEA;
+      border: 1px solid #cddff5;
       transition: border 0.2s, transform 0.2s;
       box-shadow: none;
       text-align: left;
     }
 
     .card:hover {
-      border: 1px solid #AAAAAA;
+      border: 1px solid #8ba9ff;
       transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.9);
     }
 
     .timeline {
-      border-left: 1px solid #DDDDDD;
+      border-left: 1px solid #b3c7e3;
       padding-left: 32px;
       margin-left: 8px;
     }
@@ -320,9 +322,9 @@
       top: 6px;
       width: 10px;
       height: 10px;
-      background: #8ba9ff;
+      background: #7f9cf5;
       border-radius: 50%;
-      border: 2px solid #FFFFFF;
+      border: 2px solid #f3f9ff;
     }
 
     .skills {
@@ -333,42 +335,43 @@
     }
 
     .skill {
-      background: #F5F5F5;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(2px);
       padding: 10px 22px;
       border-radius: 40px;
       font-size: 0.95rem;
       font-weight: 400;
-      color: #111111;
-      border: 1px solid #EAEAEA;
-      box-shadow: none;
+      color: #1f3a5f;
+      border: 1px solid #cddff5;
     }
 
     .contact-details p {
       margin: 16px 0;
       font-size: 1.2rem;
       font-weight: 300;
+      color: #1f3a5f;
     }
 
     footer {
       padding: 40px 48px;
       text-align: left;
-      border-top: 1px solid #EEEEEE;
-      color: #777777;
+      border-top: 1px solid #c7d9f0;
+      color: #4d627c;
       font-size: 0.9rem;
     }
 
     /* ---------- RESPONSIVE ---------- */
     @media (max-width: 900px) {
       nav {
-        padding: 14px 24px;
+        padding: 8px 20px;
       }
       .nav-links {
-        gap: 20px;
+        gap: 14px;
       }
     }
 
     @media (max-width: 768px) {
-      .hero-section { padding: 100px 24px 60px; }
+      .hero-section { padding: 120px 24px 70px; }
       .display-name { font-size: 3.2rem; }
       .bg-circle { width: 320px; height: 320px; }
       .orbit-ring { width: 280px; height: 280px; }
@@ -378,10 +381,6 @@
       .label-bottom { right: -20px; bottom: -10px; }
       h2 { font-size: 2rem; }
       .container { width: 88%; }
-      .nav-links {
-        gap: 18px;
-        padding-bottom: 8px;
-      }
     }
 
     @media (max-width: 480px) {
@@ -397,16 +396,12 @@
       .profile-circle { width: 140px; height: 140px; }
       .label-top { left: -10px; }
       .label-bottom { right: -10px; }
-      .nav-links {
-        gap: 16px;
-        padding-bottom: 6px;
-      }
     }
   </style>
 </head>
 <body>
 
-<!-- NAVIGATION (lengkap, dengan swipe di mobile) -->
+<!-- NAVIGATION (compact) -->
 <nav>
   <div class="logo">MyCV</div>
   <div class="nav-links">
@@ -424,9 +419,8 @@
 <!-- HERO SECTION -->
 <section class="hero-section">
   <div class="hero-content">
-    <!-- Visual Group dengan background circle baru -->
     <div class="visual-group" data-aos="fade-up" data-aos-duration="1000">
-      <div class="bg-circle"></div>            <!-- latar belakang solid -->
+      <div class="bg-circle"></div>
       <div class="orbit-ring"></div>
       <div class="profile-circle">
         <!-- GANTI FOTO KAMU -->
@@ -440,7 +434,7 @@
       </div>
     </div>
 
-    <div class="hero-greeting" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900" style="font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; color: #666; margin-bottom: 8px;">Hello, I am</div>
+    <div class="hero-greeting" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900" style="font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; color: #3e5f85; margin-bottom: 8px;">Hello, I am</div>
     
     <h1 class="display-name" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1000">
       <span class="gradient-text">Stefiluuu</span>
@@ -450,7 +444,6 @@
       Digital Marketing • Branding • Ads
     </p>
 
-    <!-- Deskripsi singkat tambahan -->
     <p class="hero-description" data-aos="fade-up" data-aos-delay="250" data-aos-duration="900">
       I help brands scale through SEO, paid media, and conversion‑focused strategies. <br> Let's turn insights into measurable growth.
     </p>
@@ -481,11 +474,11 @@
       <div class="timeline-item card" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000">
         <strong style="font-size: 1.3rem; display: block; margin-bottom: 6px;">Marketing Intern</strong>
         PT Example (2024)<br>
-        <span style="color: #555;">Running ads & analytics</span>
+        <span style="color: #3e5f85;">Running ads & analytics</span>
       </div>
       <div class="timeline-item card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
         <strong style="font-size: 1.3rem; display: block; margin-bottom: 6px;">Freelance Ads Specialist</strong>
-        <span style="color: #555;">Handled multiple clients campaign</span>
+        <span style="color: #3e5f85;">Handled multiple clients campaign</span>
       </div>
     </div>
   </div>
@@ -545,15 +538,15 @@
   <div class="container">
     <h2 data-aos="fade-up" data-aos-duration="900">Get In Touch</h2>
     <div class="contact-details" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-      <p>📧 <a href="mailto:email@email.com" style="color: #000; text-decoration: none; border-bottom: 1px solid #CCC;">email@email.com</a></p>
-      <p>🔗 <a href="#" style="color: #000; text-decoration: none; border-bottom: 1px solid #CCC;">linkedin.com/in/stefiluuu</a></p>
+      <p>📧 <a href="mailto:email@email.com" style="color: #1f3a5f; text-decoration: none; border-bottom: 1px solid #b0c6e0;">email@email.com</a></p>
+      <p>🔗 <a href="#" style="color: #1f3a5f; text-decoration: none; border-bottom: 1px solid #b0c6e0;">linkedin.com/in/stefiluuu</a></p>
       <p>📱 +62 xxx</p>
     </div>
   </div>
 </section>
 
 <footer>
-  © 2026 My Portfolio — Soft blue accent.
+  © 2026 My Portfolio — Pastel blue gradient.
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

@@ -1,40 +1,526 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stefi · SEO & Ads Portfolio</title>
+  <!-- Fonts: Poppins untuk modern clean, Playfair Display untuk sentuhan warm professional -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fcf9f5;  /* base warm cream */
+      color: #2c2b28;             /* deep warm charcoal */
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
+    /* ---------- TYPOGRAPHY WARM ---------- */
+    h1, h2, h3 {
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
 
-body{
-font-family:'Poppins',sans-serif;
-background:linear-gradient(135deg,#f8fafc,#e0f2fe,#eef2ff);
-color:#111;
-scroll-behavior:smooth;
-}
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60%;
+      height: 3px;
+      background: #d9b382;  /* warm terracotta/beige accent */
+      border-radius: 20px;
+    }
 
-/* NAV */
-nav{
-position:fixed;
-top:0;
-width:100%;
-padding:15px 40px;
-display:flex;
-justify-content:space-between;
-backdrop-filter:blur(10px);
-background:rgba(255,255,255,0.5);
-z-index:999;
-}
+    .section-title {
+      text-align: left;
+      width: 100%;
+    }
 
-nav a{
-text-decoration:none;
-color:#333;
-margin:0 10px;
+    /* ---------- NAVIGATION (clean, minimal) ---------- */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(12px);
+      background: rgba(252, 249, 245, 0.7);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      z-index: 999;
+      border-bottom: 1px solid rgba(217, 179, 130, 0.15);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: #4a3f35;
+      letter-spacing: -0.5px;
+    }
+    .logo span {
+      color: #b68b6b;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #4a3f35;
+      margin-left: 32px;
+      font-weight: 400;
+      font-size: 0.95rem;
+      transition: color 0.25s;
+      border-bottom: 1.5px solid transparent;
+      padding-bottom: 4px;
+    }
+    .nav-links a:hover {
+      color: #b68b6b;
+      border-bottom: 1.5px solid #d9b382;
+    }
+
+    /* ---------- LAYOUT ---------- */
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 20px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ---------- HERO (hangat & confident) ---------- */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-img {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 28px;
+      box-shadow: 0 18px 35px -8px rgba(74, 63, 53, 0.15);
+      border: 4px solid #f3ede5;
+    }
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-pre-title {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #b68b6b;
+      margin-bottom: 8px;
+      font-weight: 400;
+    }
+
+    .name {
+      font-size: 4.2rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      color: #3e362e;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .hero-tagline {
+      font-size: 1.25rem;
+      color: #6b5e51;
+      margin-bottom: 28px;
+      font-weight: 300;
+      max-width: 600px;
+    }
+
+    .btn {
+      background: transparent;
+      border: 1.5px solid #b68b6b;
+      color: #4a3f35;
+      padding: 14px 36px;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      backdrop-filter: blur(4px);
+      letter-spacing: 0.3px;
+      background-color: rgba(252, 249, 245, 0.4);
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn:hover {
+      background: #b68b6b;
+      color: #fcf9f5;
+      border-color: #b68b6b;
+      box-shadow: 0 8px 18px rgba(182, 139, 107, 0.2);
+    }
+
+    /* ---------- METRIC CARDS (untuk SEO/Ads) ---------- */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin: 50px 0 20px;
+    }
+    .metric-card {
+      background: #ffffffdb;
+      backdrop-filter: blur(4px);
+      background: rgba(255, 255, 255, 0.75);
+      padding: 28px 18px;
+      border-radius: 28px;
+      box-shadow: 0 12px 28px -8px rgba(62, 54, 46, 0.08);
+      border: 1px solid #efe4d9;
+      text-align: center;
+      transition: transform 0.25s ease;
+    }
+    .metric-card:hover {
+      transform: translateY(-6px);
+      background: #ffffff;
+      border-color: #d9b382;
+    }
+    .metric-value {
+      font-size: 2.8rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      color: #3e362e;
+      line-height: 1.2;
+    }
+    .metric-label {
+      font-size: 0.95rem;
+      color: #7a6b5d;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ---------- CARDS (experience, cert) ---------- */
+    .card {
+      background: #fffcf9;
+      padding: 28px 32px;
+      border-radius: 24px;
+      margin: 18px 0;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
+      border: 1px solid #efe1d4;
+      transition: all 0.2s;
+      text-align: left;
+    }
+    .card:hover {
+      box-shadow: 0 20px 30px -12px rgba(182, 139, 107, 0.08);
+      border-color: #d9b382;
+    }
+
+    .card-title {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #3e362e;
+    }
+    .card-sub {
+      color: #b68b6b;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+
+    /* timeline adaptasi */
+    .timeline {
+      border-left: 2.5px solid #d9b382;
+      padding-left: 28px;
+      margin-top: 25px;
+    }
+    .timeline-item {
+      margin-bottom: 32px;
+      position: relative;
+    }
+    .timeline-item:before {
+      content: '';
+      position: absolute;
+      left: -36px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      background: #b68b6b;
+      border-radius: 50%;
+      border: 3px solid #fcf9f5;
+    }
+
+    /* skills chips */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .skill {
+      background: #f3ede5;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 400;
+      color: #4a3f35;
+      border: 1px solid #e7d9cd;
+      backdrop-filter: blur(4px);
+      font-size: 0.95rem;
+    }
+
+    /* contact */
+    .contact-info p {
+      margin: 14px 0;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    footer {
+      padding: 40px;
+      text-align: center;
+      color: #8a7a6b;
+      border-top: 1px solid #efe1d4;
+      font-size: 0.9rem;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 700px) {
+      .metrics-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .name {
+        font-size: 3rem;
+      }
+      nav {
+        padding: 16px 20px;
+      }
+      .nav-links a {
+        margin-left: 18px;
+        font-size: 0.85rem;
+      }
+      h2 {
+        font-size: 1.9rem;
+      }
+    }
+    @media (min-width: 1024px) {
+      .container {
+        max-width: 1150px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION: rapih & hangat -->
+<nav>
+  <div class="logo">Stefi<span>.</span></div>
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#summary">About</a>
+    <a href="#metrics">Metrics</a>
+    <a href="#exp">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO SECTION: tone professional dan warm -->
+<section>
+  <div class="container hero">
+    <div class="hero-img" data-aos="zoom-in" data-aos-duration="800">
+      <!-- GANTI FOTO KAMU DISINI -->
+      <img src="https://placehold.co/400x400/f3ede5/6b5e51?text=Stefi" alt="Stefi Portrait">
+    </div>
+    <div class="hero-pre-title" data-aos="fade-up" data-aos-delay="100">SEO & Performance Marketing</div>
+    <h1 class="name" data-aos="fade-up" data-aos-delay="150">
+      Stefiluuu
+    </h1>
+    <p class="hero-tagline" data-aos="fade-up" data-aos-delay="200">
+      Turning data into growth · Meta & Google Ads Specialist · Warm strategy, measurable impact.
+    </p>
+    <a href="#contact" class="btn" data-aos="fade-up" data-aos-delay="250">Let's collaborate →</a>
+  </div>
+</section>
+
+<!-- SUMMARY + METRICS: menonjolkan hasil kampanye (SEO/Ads) -->
+<section id="summary">
+  <div class="container">
+    <div class="section-title" data-aos="fade-up">
+      <h2>Performance at a glance</h2>
+    </div>
+    <p style="max-width: 720px; margin-bottom: 10px; color: #5f5346;" data-aos="fade-up" data-aos-delay="100">
+      Marketing specialist with 3+ years in digital ads, SEO content, and brand storytelling. 
+      I combine data precision with warm, human-centric campaigns that convert.
+    </p>
+
+    <!-- Metric cards: bisa ganti angka sesuai porto -->
+    <div class="metrics-grid">
+      <div class="metric-card" data-aos="fade-up" data-aos-delay="150">
+        <div class="metric-value">2.4M+</div>
+        <div class="metric-label">Ad Impressions</div>
+        <small style="color:#8a7a6b;">(last 12 months)</small>
+      </div>
+      <div class="metric-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="metric-value">4.8x</div>
+        <div class="metric-label">Avg. ROAS</div>
+        <small style="color:#8a7a6b;">across Meta & Google</small>
+      </div>
+      <div class="metric-card" data-aos="fade-up" data-aos-delay="250">
+        <div class="metric-value">32%</div>
+        <div class="metric-label">↓ CPC reduction</div>
+        <small style="color:#8a7a6b;">via A/B testing</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE + CASE STUDY (dengan timeline) -->
+<section id="exp">
+  <div class="container">
+    <div class="section-title" data-aos="fade-up">
+      <h2>Experience & case highlights</h2>
+    </div>
+    <div class="timeline">
+      <!-- item 1 -->
+      <div class="timeline-item card" data-aos="fade-up">
+        <div class="card-title">Performance Marketing Lead</div>
+        <div class="card-sub">Agency XYZ · 2025 – Present</div>
+        <p>Manage Meta & Google Ads portfolio with monthly budget $15k+. Increased conversion rate by 27% through creative testing and audience refinement.</p>
+        <div style="margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap;">
+          <span style="background: #efe4d9; padding:4px 12px; border-radius: 20px; font-size:0.8rem;">Meta Ads</span>
+          <span style="background: #efe4d9; padding:4px 12px; border-radius: 20px; font-size:0.8rem;">Google Analytics 4</span>
+          <span style="background: #efe4d9; padding:4px 12px; border-radius: 20px; font-size:0.8rem;">SEO Copy</span>
+        </div>
+      </div>
+      <!-- item 2 -->
+      <div class="timeline-item card" data-aos="fade-up">
+        <div class="card-title">Freelance Ads Specialist</div>
+        <div class="card-sub">Local & e‑commerce brands · 2023–2025</div>
+        <p>Helped 5+ SMEs scale ROAS from 1.8 to 4.2. Conducted full funnel optimization including landing page CRO and email retargeting.</p>
+      </div>
+      <!-- item 3 -->
+      <div class="timeline-item card" data-aos="fade-up">
+        <div class="card-title">Marketing Intern (SEO & Content)</div>
+        <div class="card-sub">PT Example Group · 2024</div>
+        <p>Supported organic traffic growth by 60% YoY via keyword research and blog optimization. Assisted in Facebook Ads reporting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORGANISASI & KEPEMIMPINAN (tetap dimasukkan) -->
+<section>
+  <div class="container">
+    <div class="section-title" data-aos="fade-up">
+      <h2>Organizational & community</h2>
+    </div>
+    <div class="card" data-aos="fade-up">
+      <div class="card-title">Event & Branding Lead</div>
+      <div class="card-sub">Student Communication Forum · 2023</div>
+      <p>Orchestrated digital campaign for national seminar attended by 400+ participants, securing 3 media partners.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS + EDUCATION (digabung rapi) -->
+<section>
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+      <!-- Left: Certifications -->
+      <div data-aos="fade-up">
+        <div class="section-title" style="margin-bottom: 20px;"><h2>Certifications</h2></div>
+        <div class="card" style="margin-top:0;">
+          <p>✓ Google Digital Marketing & E‑commerce Certificate</p>
+          <p>✓ Meta Certified Media Buying Professional</p>
+          <p>✓ SEO Fundamentals (Moz)</p>
+          <p>✓ HubSpot Inbound Marketing</p>
+        </div>
+      </div>
+      <!-- Right: Education -->
+      <div data-aos="fade-up" data-aos-delay="100">
+        <div class="section-title" style="margin-bottom: 20px;"><h2>Education</h2></div>
+        <div class="card" style="margin-top:0;">
+          <div class="card-title">S1 Ilmu Komunikasi</div>
+          <div class="card-sub">Public Relations · GPA 3.74/4.00</div>
+          <p>Universitas Terbuka / Universitas Indonesia (sesuaikan).<br>Focus on strategic communication & digital media.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS (tools & soft skill) -->
+<section>
+  <div class="container">
+    <div class="section-title" data-aos="fade-up">
+      <h2>Core toolkit</h2>
+    </div>
+    <div class="skills" data-aos="fade-up">
+      <span class="skill">SEO (on‑page, technical)</span>
+      <span class="skill">Meta Ads Manager</span>
+      <span class="skill">Google Ads</span>
+      <span class="skill">GA4 & Looker Studio</span>
+      <span class="skill">Copywriting & CRO</span>
+      <span class="skill">SEMrush / Ahrefs</span>
+      <span class="skill">Brand Storytelling</span>
+      <span class="skill">A/B Testing</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT (simpel & hangat) -->
+<section id="contact">
+  <div class="container" style="text-align: center;">
+    <div class="section-title" style="text-align: center; display: flex; justify-content: center;" data-aos="fade-up">
+      <h2 style="text-align: center;">Let’s connect</h2>
+    </div>
+    <p style="margin-bottom: 40px; color: #5f5346;" data-aos="fade-up" data-aos-delay="50">
+      Open for freelance projects or full‑time collaboration.
+    </p>
+    <div class="contact-info" data-aos="fade-up" data-aos-delay="100">
+      <p>📧 <a href="mailto:stefi@email.com" style="color:#3e362e; text-decoration:none; border-bottom:1px dotted #b68b6b;">stefi.marketing@email.com</a></p>
+      <p>🔗 <a href="#" style="color:#3e362e; text-decoration:none;">linkedin.com/in/stefimarketing</a></p>
+      <p>📱 +62 812-XXXX-XXXX</p>
+    </div>
+    <!-- CTA tambahan -->
+    <a href="#" class="btn" style="margin-top: 40px;" data-aos="fade-up" data-aos-delay="150">Download resume (PDF) ↗</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Stefi — Built with warmth & strategy
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true,
+    offset: 80
+  });
+</script>
+<!-- Placeholder image note: ganti dengan foto kamu -->
+</body>
+</html>margin:0 10px;
 font-size:14px;
 }
 

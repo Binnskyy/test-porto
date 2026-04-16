@@ -3,17 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stefiluuu · Minimal + Orbit</title>
-  <!-- Modern Typography: Inter -->
+  <title>Stefiluuu · Pastel Blue Portfolio</title>
+  <!-- Inter Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- AOS Library -->
+  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    /* ---------- RESET & BASE (Monochrome Minimalist) ---------- */
+    /* ---------- RESET & BASE ---------- */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-padding-top: 80px; /* mencegah anchor tertutup navbar */
     }
 
     body {
@@ -21,7 +25,6 @@
       background-color: #FFFFFF;
       color: #111111;
       line-height: 1.5;
-      scroll-behavior: smooth;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -51,12 +54,12 @@
     }
 
     section {
-      padding: 100px 0;
+      padding: 80px 0;
       display: block;
       text-align: left;
     }
 
-    /* ---------- NAVIGATION (Glass) ---------- */
+    /* ---------- NAVIGATION (Glass, fixed) ---------- */
     nav {
       position: fixed;
       top: 0;
@@ -66,7 +69,7 @@
       justify-content: space-between;
       align-items: center;
       backdrop-filter: blur(12px);
-      background: rgba(255, 255, 255, 0.75);
+      background: rgba(255, 255, 255, 0.8);
       border-bottom: 1px solid #EEEEEE;
       z-index: 999;
     }
@@ -96,20 +99,26 @@
       letter-spacing: -0.02em;
     }
 
-    /* ---------- HERO SECTION (BARU: ORBIT & FLOAT LABEL) ---------- */
+    /* ---------- HERO SECTION (ORBIT & FLOAT LABEL) ---------- */
     .hero-section {
       display: flex;
       align-items: center;
       min-height: 100vh;
-      padding: 120px 48px 60px 48px;
+      padding: 100px 48px 60px;  /* extra top padding biar ga ketutup nav */
+      margin-top: 0;
     }
 
     .hero-content {
       max-width: 1000px;
+      width: 100%;
     }
 
     .visual-group {
       position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: fit-content;
       margin-bottom: 40px;
     }
 
@@ -118,10 +127,10 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 300px;
-      height: 300px;
+      width: 260px;
+      height: 260px;
       border-radius: 50%;
-      border: 1.5px dashed rgba(157, 117, 255, 0.3); /* subtle purple */
+      border: 1.5px dashed rgba(139, 169, 255, 0.4); /* biru pastel */
       animation: rotateRing 25s linear infinite;
     }
 
@@ -137,7 +146,7 @@
       border-radius: 50%;
       overflow: hidden;
       border: 4px solid #FFFFFF;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* very subtle, still flat-ish */
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
       z-index: 2;
     }
 
@@ -164,16 +173,14 @@
       color: #111;
     }
 
-    .label-top { top: -10px; left: -80px; }
+    .label-top { top: -12px; left: -70px; }
     .label-bottom { bottom: 10px; right: -60px; }
-    .float-label i { color: #9d75ff; font-style: normal; } /* fallback */
 
-    /* Untuk simbol lingkaran kecil */
     .dot-indicator {
       display: inline-block;
       width: 8px;
       height: 8px;
-      background: #9d75ff;
+      background: #8ba9ff; /* biru pastel */
       border-radius: 50%;
       margin-right: 6px;
     }
@@ -190,7 +197,7 @@
 
     .gradient-text {
       display: block;
-      background: linear-gradient(135deg, #9d75ff 0%, #ff85b3 100%);
+      background: linear-gradient(135deg, #7f9cf5 0%, #b3cdff 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -202,7 +209,7 @@
       margin-bottom: 40px;
     }
 
-    /* ---------- BUTTONS (Minimalist) ---------- */
+    /* ---------- BUTTONS ---------- */
     .btn {
       display: inline-block;
       padding: 14px 34px;
@@ -237,7 +244,7 @@
       transform: translateY(-2px);
     }
 
-    /* ---------- CARDS (Bento, border only) ---------- */
+    /* ---------- CARDS (Bento) ---------- */
     .card {
       background: #FFFFFF;
       padding: 32px;
@@ -271,7 +278,7 @@
       top: 6px;
       width: 10px;
       height: 10px;
-      background: #000000;
+      background: #8ba9ff; /* aksen biru */
       border-radius: 50%;
       border: 2px solid #FFFFFF;
     }
@@ -312,12 +319,12 @@
     @media (max-width: 768px) {
       nav { padding: 16px 24px; }
       .nav-links { gap: 24px; }
-      .hero-section { padding: 120px 24px 60px; }
+      .hero-section { padding: 100px 24px 60px; }
       .display-name { font-size: 3.2rem; }
       .float-label { font-size: 0.7rem; padding: 6px 12px; }
-      .label-top { left: -40px; }
-      .label-bottom { right: -30px; }
-      .orbit-ring { width: 220px; height: 220px; }
+      .label-top { left: -30px; }
+      .label-bottom { right: -20px; }
+      .orbit-ring { width: 200px; height: 200px; }
       h2 { font-size: 2rem; }
       .container { width: 88%; }
     }
@@ -329,12 +336,7 @@
       .btn-outline { margin-left: 0; margin-top: 12px; }
       .timeline { padding-left: 20px; }
       .timeline-item::before { left: -28px; }
-      .orbit-ring { width: 180px; height: 180px; }
-    }
-
-    /* AOS custom duration */
-    [data-aos] {
-      transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      .orbit-ring { width: 160px; height: 160px; }
     }
   </style>
 </head>
@@ -351,17 +353,16 @@
   </div>
 </nav>
 
-<!-- HERO SECTION dengan ORBIT & FLOAT LABEL (Sesuai Permintaan) -->
+<!-- HERO SECTION (dengan orbit biru pastel & gradient nama) -->
 <section class="hero-section">
   <div class="hero-content">
-    <!-- Visual Group dengan orbit dan label -->
+    <!-- Visual Group : foto + orbit + label -->
     <div class="visual-group" data-aos="fade-up" data-aos-duration="1000">
       <div class="orbit-ring"></div>
       <div class="profile-circle">
-        <!-- GANTI FOTO ANDA -->
+        <!-- GANTI FOTO KAMU -->
         <img src="foto.jpg" alt="Stefiluuu">
       </div>
-      <!-- Float Labels -->
       <div class="float-label label-top" data-aos="fade-right" data-aos-delay="200" data-aos-duration="800">
         <span class="dot-indicator"></span> SEO Specialist
       </div>
@@ -372,7 +373,6 @@
 
     <div class="hero-greeting" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900" style="font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; color: #666; margin-bottom: 8px;">Hello, I am</div>
     
-    <!-- Nama dengan gradient text -->
     <h1 class="display-name" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1000">
       <span class="gradient-text">Stefiluuu</span>
     </h1>
@@ -479,7 +479,7 @@
 </section>
 
 <footer>
-  © 2026 My Portfolio — Minimalist with orbit accent.
+  © 2026 My Portfolio — Soft blue accent.
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

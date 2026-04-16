@@ -209,11 +209,11 @@
       margin-right: 4px;
     }
 
-    /* ---------- PANAH & TEKS GOMBAL (POSISI KANAN BAWAH) ---------- */
+    /* ---------- PANAH & TEKS (KANAN BAWAH, ARAH BENAR) ---------- */
     .gombal-group {
       position: absolute;
-      bottom: -10px;          /* dari bawah foto */
-      right: -70px;           /* dari kanan foto */
+      bottom: 10px;          /* dari bawah foto */
+      right: -30px;           /* dari kanan foto */
       z-index: 5;
       pointer-events: none;
       display: flex;
@@ -224,7 +224,7 @@
 
     @keyframes floatGroup {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
+      50% { transform: translateY(-5px); }
     }
 
     .gombal-text {
@@ -239,20 +239,15 @@
       border: 1px solid rgba(139, 169, 255, 0.4);
       white-space: nowrap;
       box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       margin-right: 10px;
     }
 
     .arrow-svg {
-      width: 110px;
+      width: 130px;
       height: auto;
       filter: drop-shadow(0 4px 6px rgba(58, 107, 197, 0.1));
-      transform: scaleX(-1);   /* balik biar panah mengarah ke kiri (ke foto) */
-    }
-
-    /* atur posisi panah lebih presisi */
-    .gombal-arrow {
-      margin-right: -20px;      /* tarik sedikit ke kiri biar kepala panah tepat di foto */
+      transform: scaleX(-1);   /* balik horizontal agar kepala panah di kiri */
     }
 
     .display-name {
@@ -435,8 +430,8 @@
       .float-label { font-size: 0.6rem; padding: 5px 10px; }
       .label-top { left: -30px; top: -15px; }
       .label-bottom { right: -25px; bottom: -10px; }
-      .gombal-group { right: -40px; bottom: -5px; }
-      .arrow-svg { width: 90px; }
+      .gombal-group { right: -10px; bottom: 15px; }
+      .arrow-svg { width: 100px; }
       .gombal-text { font-size: 0.7rem; padding: 4px 12px; }
       h2 { font-size: 2rem; }
       .container { width: 88%; }
@@ -458,8 +453,8 @@
       .profile-circle { width: 150px; height: 150px; }
       .label-top { left: -10px; }
       .label-bottom { right: -10px; }
-      .gombal-group { right: -20px; bottom: 0; }
-      .arrow-svg { width: 75px; }
+      .gombal-group { right: -5px; bottom: 20px; }
+      .arrow-svg { width: 85px; }
       .gombal-text { font-size: 0.6rem; }
     }
   </style>
@@ -498,16 +493,16 @@
         <span class="dot-indicator"></span> Meta Ads • Google
       </div>
 
-      <!-- PANAH & TEKS KANAN BAWAH -->
+      <!-- PANAH & TEKS (ARAH BENAR) -->
       <div class="gombal-group" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="800">
         <div class="gombal-text">✨ ini dia dalangnya ✨</div>
         <div class="gombal-arrow">
-          <svg class="arrow-svg" viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Ekor bergelombang dimulai dari kanan bawah, lalu meliuk ke kiri menuju foto -->
-            <path d="M115 45 C 90 35, 80 55, 60 40 C 40 25, 35 50, 15 35 L 5 30 L 10 20 L 25 27 C 45 40, 55 15, 75 30 C 90 40, 95 25, 110 35" 
+          <svg class="arrow-svg" viewBox="0 0 140 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Ekor di kanan (x=130), meliuk ke kiri menuju foto, kepala panah di kiri (x=10) -->
+            <path d="M130 40 C 110 30, 100 50, 80 35 C 60 20, 50 45, 30 30 C 20 22, 15 28, 10 25" 
                   stroke="#7f9cf5" stroke-width="3" stroke-linecap="round" fill="none" stroke-linejoin="round"/>
-            <!-- Kepala panah segitiga di ujung kiri (menuju foto) -->
-            <polygon points="10,20 0,30 10,40" fill="#7f9cf5" />
+            <!-- Kepala panah segitiga di ujung kiri, menunjuk ke kiri atas (ke foto) -->
+            <polygon points="10,25 0,20 5,30" fill="#7f9cf5" />
           </svg>
         </div>
       </div>
@@ -534,7 +529,7 @@
   </div>
 </section>
 
-<!-- SUMMARY, EXPERIENCE, DLL (sama seperti sebelumnya) -->
+<!-- SECTIONS LAINNYA (sama) -->
 <section id="summary">
   <div class="container">
     <h2 data-aos="fade-up" data-aos-duration="900">Summary</h2>

@@ -17,7 +17,7 @@
     }
 
     html {
-      scroll-padding-top: 60px;   /* sesuai tinggi navbar */
+      scroll-padding-top: 50px;
     }
 
     body {
@@ -59,45 +59,38 @@
       text-align: left;
     }
 
-    /* ---------- NAVIGATION (Ultra compact, tidak mengganggu) ---------- */
+    /* ---------- NAVIGATION (Super kecil, wrap alami) ---------- */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      padding: 6px 32px;           /* sangat kecil */
+      padding: 4px 24px;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       backdrop-filter: blur(16px);
-      background: rgba(255, 255, 255, 0.3);
-      border-bottom: 1px solid rgba(139, 169, 255, 0.15);
+      background: rgba(255, 255, 255, 0.25);
+      border-bottom: 1px solid rgba(139, 169, 255, 0.1);
       z-index: 999;
     }
 
     .nav-links {
       display: flex;
-      gap: 18px;
+      gap: 16px;
       flex-wrap: wrap;
-      overflow-x: auto;
-      white-space: nowrap;
-      padding-bottom: 2px;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-    .nav-links::-webkit-scrollbar {
-      display: none;
+      justify-content: flex-end;
     }
 
     nav a {
       text-decoration: none;
       color: #1a2e44;
-      font-size: 0.7rem;
+      font-size: 0.6rem;
       font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
+      letter-spacing: 0.6px;
       transition: color 0.2s;
-      flex-shrink: 0;
-      padding: 4px 0;
+      padding: 2px 0;
     }
 
     nav a:hover {
@@ -106,19 +99,17 @@
 
     .logo {
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 0.9rem;
       letter-spacing: -0.02em;
-      margin-right: 20px;
-      flex-shrink: 0;
       color: #1a2e44;
     }
 
-    /* ---------- HERO SECTION (padding atas cukup besar) ---------- */
+    /* ---------- HERO SECTION ---------- */
     .hero-section {
       display: flex;
       align-items: center;
       min-height: 100vh;
-      padding: 160px 48px 80px;    /* top 160px agar tidak tertutup navbar */
+      padding: 200px 48px 80px;
     }
 
     .hero-content {
@@ -140,8 +131,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 380px;
-      height: 380px;
+      width: 320px;                /* sesuai permintaan */
+      height: 320px;
       border-radius: 50%;
       background: rgba(185, 210, 255, 0.3);
       z-index: 0;
@@ -152,8 +143,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 330px;
-      height: 330px;
+      width: 280px;                /* sesuai permintaan */
+      height: 280px;
       border-radius: 50%;
       border: 1.5px dashed rgba(105, 145, 225, 0.5);
       animation: rotateRing 25s linear infinite;
@@ -167,12 +158,12 @@
 
     .profile-circle {
       position: relative;
-      width: 200px;
-      height: 200px;
+      width: 240px;                /* sesuai permintaan */
+      height: 240px;
       border-radius: 50%;
       overflow: hidden;
       border: 5px solid #FFFFFF;
-      box-shadow: 0 15px 30px rgba(60, 90, 130, 0.08);
+      box-shadow: 0 20px 35px rgba(60, 90, 130, 0.1);
       z-index: 2;
     }
 
@@ -202,11 +193,11 @@
 
     .label-top { 
       top: -20px; 
-      left: -60px; 
+      left: -70px;
     }
     .label-bottom { 
       bottom: -15px; 
-      right: -50px; 
+      right: -60px; 
     }
 
     .dot-indicator {
@@ -251,7 +242,7 @@
       line-height: 1.6;
     }
 
-    /* ---------- BUTTONS (Desain ulang: elegan, glassmorphism) ---------- */
+    /* ---------- BUTTONS ---------- */
     .btn-group {
       display: flex;
       flex-wrap: wrap;
@@ -276,7 +267,6 @@
       box-shadow: 0 8px 20px -8px rgba(20, 50, 90, 0.15);
       background: rgba(255, 255, 255, 0.6);
       color: #1e2b39;
-      border: 1px solid rgba(255, 255, 255, 0.8);
     }
 
     .btn-primary {
@@ -308,7 +298,7 @@
       box-shadow: 0 12px 20px -8px rgba(60, 100, 177, 0.2);
     }
 
-    /* ---------- CARDS (transparan) ---------- */
+    /* ---------- CARDS ---------- */
     .card {
       background: rgba(255, 255, 255, 0.6);
       backdrop-filter: blur(8px);
@@ -384,10 +374,10 @@
       font-size: 0.9rem;
     }
 
-    /* ---------- RESPONSIVE ---------- */
+    /* ---------- RESPONSIVE (ukuran proporsional) ---------- */
     @media (max-width: 900px) {
       nav {
-        padding: 6px 20px;
+        padding: 4px 20px;
       }
       .nav-links {
         gap: 12px;
@@ -395,20 +385,33 @@
     }
 
     @media (max-width: 768px) {
-      .hero-section { padding: 140px 24px 70px; }
+      .hero-section { 
+        padding: 170px 24px 70px; 
+      }
       .display-name { font-size: 3.2rem; }
-      .bg-circle { width: 300px; height: 300px; }
-      .orbit-ring { width: 260px; height: 260px; }
-      .profile-circle { width: 160px; height: 160px; }
+      .bg-circle { width: 260px; height: 260px; }
+      .orbit-ring { width: 230px; height: 230px; }
+      .profile-circle { width: 190px; height: 190px; }
       .float-label { font-size: 0.6rem; padding: 5px 10px; }
-      .label-top { left: -20px; top: -15px; }
-      .label-bottom { right: -15px; bottom: -10px; }
+      .label-top { left: -30px; top: -15px; }
+      .label-bottom { right: -25px; bottom: -10px; }
       h2 { font-size: 2rem; }
       .container { width: 88%; }
     }
 
     @media (max-width: 480px) {
-      .hero-section { padding: 120px 20px 60px; }
+      nav {
+        padding: 4px 16px;
+      }
+      .nav-links {
+        gap: 10px;
+        justify-content: center;
+        width: 100%;
+        margin-top: 4px;
+      }
+      .hero-section { 
+        padding: 150px 20px 60px; 
+      }
       .display-name { font-size: 2.5rem; }
       .hero-tagline { font-size: 1rem; }
       .hero-description { font-size: 0.85rem; }
@@ -416,11 +419,11 @@
       .btn-group { flex-direction: column; width: 100%; }
       .timeline { padding-left: 20px; }
       .timeline-item::before { left: -28px; }
-      .bg-circle { width: 240px; height: 240px; }
-      .orbit-ring { width: 210px; height: 210px; }
-      .profile-circle { width: 130px; height: 130px; }
-      .label-top { left: -5px; }
-      .label-bottom { right: -5px; }
+      .bg-circle { width: 220px; height: 220px; }
+      .orbit-ring { width: 190px; height: 190px; }
+      .profile-circle { width: 150px; height: 150px; }
+      .label-top { left: -10px; }
+      .label-bottom { right: -10px; }
     }
   </style>
 </head>

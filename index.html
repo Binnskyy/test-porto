@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stefi · SEO & Ads Portfolio</title>
-  <!-- Fonts: Poppins untuk modern clean, Playfair Display untuk sentuhan warm professional -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <!-- AOS Animation -->
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
+    /* ---------- RESET & BASE ---------- */
     * {
       margin: 0;
       padding: 0;
@@ -16,15 +17,15 @@
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #fcf9f5;  /* base warm cream */
-      color: #2c2b28;             /* deep warm charcoal */
-      scroll-behavior: smooth;
+      font-family: 'Inter', sans-serif;
+      background-color: #fdfaf7;  /* warm cream */
+      color: #2e2a27;
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
-    /* ---------- TYPOGRAPHY WARM ---------- */
     h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
       font-weight: 500;
       letter-spacing: -0.02em;
     }
@@ -35,6 +36,461 @@
       position: relative;
       display: inline-block;
     }
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60%;
+      height: 3px;
+      background: #c9aa8b;  /* warm accent */
+      border-radius: 20px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 100px 0;
+      min-height: auto;
+    }
+
+    /* ---------- NAVIGATION ---------- */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(12px);
+      background: rgba(253, 250, 247, 0.75);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.02);
+      z-index: 999;
+      border-bottom: 1px solid rgba(201, 170, 139, 0.2);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #3a322b;
+    }
+    .logo span {
+      color: #c9aa8b;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #3a322b;
+      font-weight: 400;
+      font-size: 0.95rem;
+      padding-bottom: 4px;
+      border-bottom: 1.5px solid transparent;
+      transition: 0.2s;
+    }
+    .nav-links a:hover {
+      color: #b28b6f;
+      border-bottom-color: #c9aa8b;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-top: 120px;
+    }
+    .hero-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 24px;
+      box-shadow: 0 20px 30px -8px rgba(58, 50, 43, 0.12);
+      border: 4px solid #f0e7df;
+    }
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-pre-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #b28b6f;
+      margin-bottom: 8px;
+    }
+    .name {
+      font-size: 3.8rem;
+      color: #2e2a27;
+      margin-bottom: 12px;
+    }
+    .hero-tagline {
+      font-size: 1.2rem;
+      color: #5f5349;
+      font-weight: 300;
+      max-width: 600px;
+      margin-bottom: 28px;
+    }
+    .btn {
+      display: inline-block;
+      background: transparent;
+      border: 1.5px solid #b28b6f;
+      color: #3a322b;
+      padding: 14px 36px;
+      border-radius: 40px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s;
+      backdrop-filter: blur(4px);
+      background-color: rgba(253, 250, 247, 0.4);
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #b28b6f;
+      color: #fdfaf7;
+      box-shadow: 0 8px 18px rgba(178, 139, 111, 0.2);
+    }
+
+    /* ---------- METRICS (Grid) ---------- */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 40px 0;
+    }
+    .metric-card {
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(4px);
+      padding: 28px 16px;
+      border-radius: 28px;
+      box-shadow: 0 10px 24px -6px rgba(58, 50, 43, 0.05);
+      border: 1px solid #eee3da;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+    .metric-card:hover {
+      transform: translateY(-6px);
+      background: #ffffff;
+      border-color: #c9aa8b;
+    }
+    .metric-value {
+      font-size: 2.8rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      color: #2e2a27;
+    }
+    .metric-label {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7b6e63;
+    }
+
+    /* ---------- CARDS & TIMELINE ---------- */
+    .card {
+      background: #fffbf9;
+      padding: 28px 30px;
+      border-radius: 24px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.02);
+      border: 1px solid #eaded3;
+      transition: all 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 14px 28px -8px rgba(178, 139, 111, 0.08);
+      border-color: #c9aa8b;
+    }
+    .card-title {
+      font-size: 1.4rem;
+      margin-bottom: 4px;
+      color: #2e2a27;
+    }
+    .card-sub {
+      color: #b28b6f;
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+
+    .timeline {
+      margin-top: 20px;
+      border-left: 2.5px solid #c9aa8b;
+      padding-left: 28px;
+    }
+    .timeline-item {
+      margin-bottom: 32px;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -36px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      background: #b28b6f;
+      border-radius: 50%;
+      border: 3px solid #fdfaf7;
+    }
+
+    /* ---------- SKILLS ---------- */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .skill {
+      background: #f1e8e0;
+      padding: 10px 22px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #3a322b;
+      border: 1px solid #ddd0c4;
+    }
+
+    /* ---------- 2-COLUMN LAYOUT (Cert + Edu) ---------- */
+    .two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    /* ---------- CONTACT ---------- */
+    .contact-info p {
+      margin: 16px 0;
+      font-size: 1.1rem;
+    }
+    .contact-info a {
+      color: #2e2a27;
+      text-decoration: none;
+      border-bottom: 1px dotted #b28b6f;
+    }
+
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      color: #8a7b6f;
+      border-top: 1px solid #e2d4c8;
+      font-size: 0.9rem;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 700px) {
+      nav {
+        padding: 16px 20px;
+      }
+      .nav-links {
+        gap: 18px;
+      }
+      .name {
+        font-size: 2.8rem;
+      }
+      h2 {
+        font-size: 1.9rem;
+      }
+      .metrics-grid {
+        grid-template-columns: 1fr;
+      }
+      .two-columns {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .timeline {
+        padding-left: 20px;
+      }
+      .timeline-item::before {
+        left: -28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="logo">Stefi<span>.</span></div>
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#summary">About</a>
+    <a href="#exp">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section>
+  <div class="container hero">
+    <div class="hero-img" data-aos="zoom-in">
+      <!-- GANTI FOTO KAMU -->
+      <img src="https://placehold.co/400x400/f1e8e0/8a7b6f?text=Stefi" alt="Stefi">
+    </div>
+    <div class="hero-pre-title" data-aos="fade-up" data-aos-delay="50">Performance Marketing</div>
+    <h1 class="name" data-aos="fade-up" data-aos-delay="100">Stefiluuu</h1>
+    <p class="hero-tagline" data-aos="fade-up" data-aos-delay="150">
+      SEO & Ads Specialist — turning data into warm, human‑centered growth.
+    </p>
+    <a href="#contact" class="btn" data-aos="fade-up" data-aos-delay="200">Work with me →</a>
+  </div>
+</section>
+
+<!-- SUMMARY + METRICS -->
+<section id="summary">
+  <div class="container">
+    <h2 data-aos="fade-up">Performance snapshot</h2>
+    <p style="max-width: 700px; margin-bottom: 20px; color: #5a4e44;" data-aos="fade-up" data-aos-delay="50">
+      I help brands scale through data‑backed SEO and paid ads. 
+      Below are recent campaign highlights.
+    </p>
+    <!-- METRIC CARDS -->
+    <div class="metrics-grid">
+      <div class="metric-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="metric-value">2.4M</div>
+        <div class="metric-label">Ad Impressions</div>
+        <small>past 12 months</small>
+      </div>
+      <div class="metric-card" data-aos="fade-up" data-aos-delay="150">
+        <div class="metric-value">4.8x</div>
+        <div class="metric-label">Avg. ROAS</div>
+        <small>Meta & Google</small>
+      </div>
+      <div class="metric-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="metric-value">32%</div>
+        <div class="metric-label">Lower CPC</div>
+        <small>via A/B testing</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE (Timeline) -->
+<section id="exp">
+  <div class="container">
+    <h2 data-aos="fade-up">Experience & cases</h2>
+    <div class="timeline">
+      <!-- item -->
+      <div class="timeline-item card" data-aos="fade-up">
+        <div class="card-title">Performance Marketing Lead</div>
+        <div class="card-sub">Digital Agency · 2025–present</div>
+        <p>Managed Meta & Google Ads (budget $15k/mo). Improved ROAS from 2.8 → 4.6 through creative testing.</p>
+        <div style="margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap;">
+          <span style="background:#f1e8e0; padding:4px 12px; border-radius:20px; font-size:0.8rem;">Meta Ads</span>
+          <span style="background:#f1e8e0; padding:4px 12px; border-radius:20px; font-size:0.8rem;">Google Analytics</span>
+        </div>
+      </div>
+      <!-- item -->
+      <div class="timeline-item card" data-aos="fade-up">
+        <div class="card-title">Freelance Ads Specialist</div>
+        <div class="card-sub">e‑commerce & local · 2023–2025</div>
+        <p>Scaled 5+ SMEs to avg. 4.2 ROAS. Conducted full‑funnel optimization + email retargeting.</p>
+      </div>
+      <!-- item -->
+      <div class="timeline-item card" data-aos="fade-up">
+        <div class="card-title">Marketing Intern (SEO)</div>
+        <div class="card-sub">PT Example Group · 2024</div>
+        <p>Increased organic traffic by 60% via keyword research and blog optimization.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORGANIZATION (simple) -->
+<section>
+  <div class="container">
+    <h2 data-aos="fade-up">Community & leadership</h2>
+    <div class="card" data-aos="fade-up">
+      <div class="card-title">Branding & Event Lead</div>
+      <div class="card-sub">Student Forum · 2023</div>
+      <p>Led digital campaign for national seminar with 400+ attendees, secured media partnerships.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS & EDUCATION (2 kolom) -->
+<section>
+  <div class="container">
+    <div class="two-columns">
+      <!-- kiri: cert -->
+      <div data-aos="fade-up">
+        <h2>Certifications</h2>
+        <div class="card" style="margin-top:0;">
+          <p>✓ Google Digital Marketing & E‑commerce</p>
+          <p>✓ Meta Certified Media Buying Professional</p>
+          <p>✓ SEO Fundamentals (Moz)</p>
+          <p>✓ HubSpot Inbound Marketing</p>
+        </div>
+      </div>
+      <!-- kanan: education -->
+      <div data-aos="fade-up" data-aos-delay="100">
+        <h2>Education</h2>
+        <div class="card" style="margin-top:0;">
+          <div class="card-title">S1 Ilmu Komunikasi</div>
+          <div class="card-sub">Public Relations · GPA 3.74</div>
+          <p>Universitas ... (ganti nama univ) <br>Focus: strategic communication, digital media.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section>
+  <div class="container">
+    <h2 data-aos="fade-up">Core toolkit</h2>
+    <div class="skills" data-aos="fade-up">
+      <span class="skill">SEO (on‑page, technical)</span>
+      <span class="skill">Meta Ads Manager</span>
+      <span class="skill">Google Ads</span>
+      <span class="skill">GA4 & Looker Studio</span>
+      <span class="skill">Copywriting & CRO</span>
+      <span class="skill">SEMrush / Ahrefs</span>
+      <span class="skill">Brand Storytelling</span>
+      <span class="skill">A/B Testing</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container" style="text-align: center;">
+    <h2 style="display: inline-block; text-align: center;" data-aos="fade-up">Let's connect</h2>
+    <p style="margin: 20px 0 30px; color: #5a4e44;" data-aos="fade-up" data-aos-delay="50">
+      Open for freelance or full‑time collaboration.
+    </p>
+    <div class="contact-info" data-aos="fade-up" data-aos-delay="100">
+      <!-- GANTI EMAIL & LINK -->
+      <p>📧 <a href="mailto:stefi@email.com">stefi.marketing@email.com</a></p>
+      <p>🔗 <a href="#">linkedin.com/in/stefimarketing</a></p>
+      <p>📱 +62 812-XXXX-XXXX</p>
+    </div>
+    <a href="#" class="btn" style="margin-top: 40px;" data-aos="fade-up" data-aos-delay="150">Download resume (PDF)</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Stefi — built with warmth & strategy
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true,
+    offset: 60
+  });
+</script>
+</body>
+</html>    }
     h2:after {
       content: '';
       position: absolute;

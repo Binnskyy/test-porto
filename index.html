@@ -17,12 +17,11 @@
     }
 
     html {
-      scroll-padding-top: 70px;   /* disesuaikan dengan tinggi navbar baru */
+      scroll-padding-top: 60px;   /* sesuai tinggi navbar */
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      /* Gradasi pastel biru lembut */
       background: linear-gradient(145deg, #f3f9ff 0%, #e3edfc 100%);
       color: #111111;
       line-height: 1.5;
@@ -39,7 +38,7 @@
       margin-bottom: 2.5rem;
       font-weight: 500;
       letter-spacing: -0.02em;
-      color: #000000;
+      color: #0f1a26;
     }
 
     p {
@@ -60,28 +59,28 @@
       text-align: left;
     }
 
-    /* ---------- NAVIGATION (Kecil, compact) ---------- */
+    /* ---------- NAVIGATION (Ultra compact, tidak mengganggu) ---------- */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      padding: 8px 32px;           /* lebih kecil */
+      padding: 6px 32px;           /* sangat kecil */
       display: flex;
       justify-content: space-between;
       align-items: center;
-      backdrop-filter: blur(12px);
-      background: rgba(255, 255, 255, 0.4);
-      border-bottom: 1px solid rgba(139, 169, 255, 0.2);
+      backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.3);
+      border-bottom: 1px solid rgba(139, 169, 255, 0.15);
       z-index: 999;
     }
 
     .nav-links {
       display: flex;
-      gap: 20px;                  /* lebih rapat */
+      gap: 18px;
       flex-wrap: wrap;
       overflow-x: auto;
       white-space: nowrap;
-      padding-bottom: 4px;
+      padding-bottom: 2px;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
     }
@@ -91,34 +90,35 @@
 
     nav a {
       text-decoration: none;
-      color: #1e2b39;
-      font-size: 0.75rem;         /* kecil banget tapi tetap terbaca */
+      color: #1a2e44;
+      font-size: 0.7rem;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.8px;
-      transition: opacity 0.2s;
+      transition: color 0.2s;
       flex-shrink: 0;
+      padding: 4px 0;
     }
 
     nav a:hover {
-      opacity: 0.6;
+      color: #3a6bc5;
     }
 
     .logo {
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1rem;
       letter-spacing: -0.02em;
       margin-right: 20px;
       flex-shrink: 0;
-      color: #1e2b39;
+      color: #1a2e44;
     }
 
-    /* ---------- HERO SECTION (jarak ditambah) ---------- */
+    /* ---------- HERO SECTION (padding atas cukup besar) ---------- */
     .hero-section {
       display: flex;
       align-items: center;
       min-height: 100vh;
-      padding: 140px 48px 80px;   /* top ditambah agar teks turun */
+      padding: 160px 48px 80px;    /* top 160px agar tidak tertutup navbar */
     }
 
     .hero-content {
@@ -132,7 +132,7 @@
       justify-content: center;
       align-items: center;
       width: 100%;
-      margin-bottom: 48px;         /* jarak ke teks */
+      margin-bottom: 56px;
     }
 
     .bg-circle {
@@ -143,7 +143,7 @@
       width: 380px;
       height: 380px;
       border-radius: 50%;
-      background: rgba(185, 210, 255, 0.25); /* biru pastel transparan */
+      background: rgba(185, 210, 255, 0.3);
       z-index: 0;
     }
 
@@ -155,7 +155,7 @@
       width: 330px;
       height: 330px;
       border-radius: 50%;
-      border: 1.5px dashed rgba(105, 145, 225, 0.45);
+      border: 1.5px dashed rgba(105, 145, 225, 0.5);
       animation: rotateRing 25s linear infinite;
       z-index: 1;
     }
@@ -251,61 +251,84 @@
       line-height: 1.6;
     }
 
-    /* ---------- BUTTONS ---------- */
+    /* ---------- BUTTONS (Desain ulang: elegan, glassmorphism) ---------- */
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
     .btn {
-      display: inline-block;
-      padding: 14px 34px;
-      border-radius: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 36px;
+      border-radius: 60px;
       font-weight: 500;
       font-size: 1rem;
       text-decoration: none;
       cursor: pointer;
-      transition: all 0.25s ease;
-      background: #1e2b39;
-      color: #FFFFFF;
-      border: 1.5px solid #1e2b39;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       letter-spacing: 0.3px;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 8px 20px -8px rgba(20, 50, 90, 0.15);
+      background: rgba(255, 255, 255, 0.6);
+      color: #1e2b39;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+
+    .btn-primary {
+      background: #1e2b39;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 12px 24px -8px rgba(20, 50, 90, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: #2e4258;
+      transform: translateY(-4px);
+      box-shadow: 0 20px 30px -10px rgba(30, 60, 120, 0.3);
+      border-color: rgba(255, 255, 255, 0.4);
     }
 
     .btn-outline {
       background: transparent;
-      color: #1e2b39;
+      backdrop-filter: blur(8px);
       border: 1.5px solid #a0bbd8;
-      margin-left: 12px;
-    }
-
-    .btn:hover {
-      background: #2e4258;
-      border-color: #2e4258;
-      transform: translateY(-2px);
+      color: #1e2b39;
+      box-shadow: 0 4px 12px -4px rgba(0,0,0,0.05);
     }
 
     .btn-outline:hover {
-      background: rgba(255,255,255,0.5);
-      border-color: #1e2b39;
-      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.4);
+      border-color: #7f9cf5;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 20px -8px rgba(60, 100, 177, 0.2);
     }
 
-    /* ---------- CARDS ---------- */
+    /* ---------- CARDS (transparan) ---------- */
     .card {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(4px);
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(8px);
       padding: 32px;
-      border-radius: 24px;
-      border: 1px solid #cddff5;
-      transition: border 0.2s, transform 0.2s;
-      box-shadow: none;
+      border-radius: 28px;
+      border: 1px solid rgba(205, 223, 245, 0.6);
+      transition: all 0.2s ease;
+      box-shadow: 0 8px 18px -8px rgba(0,0,0,0.05);
       text-align: left;
     }
 
     .card:hover {
       border: 1px solid #8ba9ff;
-      transform: translateY(-4px);
-      background: rgba(255, 255, 255, 0.9);
+      transform: translateY(-6px);
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 18px 28px -12px rgba(60, 100, 177, 0.12);
     }
 
     .timeline {
-      border-left: 1px solid #b3c7e3;
+      border-left: 1.5px solid #b3c7e3;
       padding-left: 32px;
       margin-left: 8px;
     }
@@ -320,11 +343,12 @@
       position: absolute;
       left: -40px;
       top: 6px;
-      width: 10px;
-      height: 10px;
+      width: 12px;
+      height: 12px;
       background: #7f9cf5;
       border-radius: 50%;
-      border: 2px solid #f3f9ff;
+      border: 2.5px solid #f3f9ff;
+      box-shadow: 0 0 0 2px rgba(127, 156, 245, 0.2);
     }
 
     .skills {
@@ -335,9 +359,9 @@
     }
 
     .skill {
-      background: rgba(255,255,255,0.7);
-      backdrop-filter: blur(2px);
-      padding: 10px 22px;
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(4px);
+      padding: 10px 24px;
       border-radius: 40px;
       font-size: 0.95rem;
       font-weight: 400;
@@ -363,45 +387,46 @@
     /* ---------- RESPONSIVE ---------- */
     @media (max-width: 900px) {
       nav {
-        padding: 8px 20px;
+        padding: 6px 20px;
       }
       .nav-links {
-        gap: 14px;
+        gap: 12px;
       }
     }
 
     @media (max-width: 768px) {
-      .hero-section { padding: 120px 24px 70px; }
+      .hero-section { padding: 140px 24px 70px; }
       .display-name { font-size: 3.2rem; }
-      .bg-circle { width: 320px; height: 320px; }
-      .orbit-ring { width: 280px; height: 280px; }
-      .profile-circle { width: 170px; height: 170px; }
-      .float-label { font-size: 0.65rem; padding: 5px 10px; }
-      .label-top { left: -30px; top: -15px; }
-      .label-bottom { right: -20px; bottom: -10px; }
+      .bg-circle { width: 300px; height: 300px; }
+      .orbit-ring { width: 260px; height: 260px; }
+      .profile-circle { width: 160px; height: 160px; }
+      .float-label { font-size: 0.6rem; padding: 5px 10px; }
+      .label-top { left: -20px; top: -15px; }
+      .label-bottom { right: -15px; bottom: -10px; }
       h2 { font-size: 2rem; }
       .container { width: 88%; }
     }
 
     @media (max-width: 480px) {
+      .hero-section { padding: 120px 20px 60px; }
       .display-name { font-size: 2.5rem; }
       .hero-tagline { font-size: 1rem; }
       .hero-description { font-size: 0.85rem; }
-      .btn { padding: 12px 24px; width: 100%; text-align: center; }
-      .btn-outline { margin-left: 0; margin-top: 12px; }
+      .btn { padding: 12px 24px; width: 100%; }
+      .btn-group { flex-direction: column; width: 100%; }
       .timeline { padding-left: 20px; }
       .timeline-item::before { left: -28px; }
-      .bg-circle { width: 260px; height: 260px; }
-      .orbit-ring { width: 230px; height: 230px; }
-      .profile-circle { width: 140px; height: 140px; }
-      .label-top { left: -10px; }
-      .label-bottom { right: -10px; }
+      .bg-circle { width: 240px; height: 240px; }
+      .orbit-ring { width: 210px; height: 210px; }
+      .profile-circle { width: 130px; height: 130px; }
+      .label-top { left: -5px; }
+      .label-bottom { right: -5px; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAVIGATION (compact) -->
+<!-- NAVIGATION -->
 <nav>
   <div class="logo">MyCV</div>
   <div class="nav-links">
@@ -448,8 +473,8 @@
       I help brands scale through SEO, paid media, and conversion‑focused strategies. <br> Let's turn insights into measurable growth.
     </p>
     
-    <div data-aos="fade-up" data-aos-delay="300" data-aos-duration="900">
-      <a href="#contact" class="btn">Get In Touch →</a>
+    <div class="btn-group" data-aos="fade-up" data-aos-delay="300" data-aos-duration="900">
+      <a href="#contact" class="btn btn-primary">Get In Touch →</a>
       <a href="#" class="btn btn-outline">Download CV</a>
     </div>
   </div>
@@ -546,7 +571,7 @@
 </section>
 
 <footer>
-  © 2026 My Portfolio — Pastel blue gradient.
+  © 2026 My Portfolio — Pastel blue elegance.
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
